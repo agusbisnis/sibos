@@ -1,0 +1,103 @@
+title = "Mobile Home"
+url = "/mobile/home"
+layout = "struk"
+hidden = "0"
+
+==
+<?php
+function onStart()
+{
+    $this['currentPage'] = 'kelurahan';
+
+    //$user = Auth::getUser();
+    $this['kotas']= Ipomi\Tiket\Models\Kota::get();
+    
+    
+    //$this['kecamatans']= Sibos\Struk\Models\Kecamatan::get();
+   // $this['ingredients'] = Responsiv\DishSmith\Models\Dish::mergeIngredients($dishes);
+}
+
+function onTrayek()
+{
+    
+
+    $this['trayeks'] = Ipomi\Tiket\Models\Trayek::get()->where('id_asal', intval(post('dari')))
+                                                      ->where('id_tujuan', intval(post('ke')));
+    
+    
+}
+function onAgen()
+{
+    
+
+    $this['agens'] = Ipomi\Tiket\Models\Agen::get();
+    
+    
+}
+function onNew()
+{
+    $kelurahan = new Sibos\Struk\Models\Kelurahan;
+    $this['kecamatans'] = Sibos\Struk\Models\Kecamatan::get();
+    $this['sessionKey'] = post('session_key', uniqid());
+
+    
+}
+?>
+==
+{% put head %}
+
+     <link href="{{ [ 'assets2/css/style-responsive.css',
+     'assets2/css/table-responsive.css']|theme  }}" rel="stylesheet">
+
+{% endput %}
+{% put scripts %}
+<script type="text/javascript">
+    
+
+    function ToggleVisibility(divClass) {
+    var els = document.getElementsByClassName(divClass);
+      for(var i = 0; i < els.length; i++)
+      {
+          els[i].style.visibility = els[i].style.visibility == "hidden" ? "visible" : "hidden";
+      }
+
+    }
+
+    jQuery(function(){
+         jQuery('#showall').click(function(){
+               jQuery('.targetDiv').show();
+        });
+        jQuery('.showSingle').click(function(){
+              jQuery('.targetDiv').hide();
+              jQuery('#'+$(this).attr('target')).show();
+        });
+    });
+
+    $(document).ready(function() {
+      $('.targetDiv').hide();
+      $('#tombol').show();
+    });
+    </script>
+
+
+{% endput %}
+
+<section class="struk-page wrapper back-ipomi" id="sub-content">
+        <div class="struk-list targetDiv" id="tombol">
+              {% partial 'tombol' %}
+         </div>
+         <div class="struk-list targetDiv" id="pesan">
+              {% partial 'pesan' %}
+         </div>
+         <div class="struk-list targetDiv" id="agen">
+              {% partial 'agen' %}
+         </div>
+         <div class="struk-list targetDiv" id="hasil">
+              {% partial 'hasil' %}
+         </div>
+         
+         <div class="struk-form targetDiv" id="form">
+              {% partial 'nav' %}
+         </div>
+      </section>
+

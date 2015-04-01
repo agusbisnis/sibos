@@ -1,0 +1,50 @@
+<h3>Pilih Agen Tempat Pemberangkatan
+    <img src="{{ 'assets2/img/icon/icon-home-32-dark.png'|theme }}" class="pull-right">
+</h3>
+<hr />
+
+<div class="row mt">
+              <div class="col-lg-12">
+                      <div class="content-panel">
+						  
+                          <div id="no-more-tables">
+                              <table class="table table-bordered table-striped table-condensed cf">
+                                  <thead class="cf">
+                                  <tr>
+                                      <th>Nama Agen</th>
+                                      <th>Alamat</th>
+                                      
+                                      <th>Pesan</th>
+                                      
+                                  </tr>
+                                  </thead>
+                                  <tbody>
+                                   
+                                  {% for a in agens %}
+                                  <tr>
+                                  
+                                      <td data-title="Nama PO">{{ a.nama }}</td>
+                                      
+                                      <td data-title="Alamat" class="numeric">{{ a.alamat }}</td>
+                                      <td class="numeric">
+                    <a
+                        href="javascript:;"
+                        data-request="onDelete"
+                        data-request-data="id: {{kp.id}}"
+                        data-request-confirm="Yakin akan menghapus?"
+                        data-request-update="'kategoriproduk/list': '#list'"
+                        class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>&nbsp;Pesan</a>
+
+                                        
+                                      </td>
+                                  </tr>
+                                  {% endfor %}
+                                  </tbody>
+                              </table>
+                         </div>
+
+                          
+
+                      </div><!-- /content-panel -->
+                  </div><!-- /col-lg-12 -->
+              </div><!-- /row -->

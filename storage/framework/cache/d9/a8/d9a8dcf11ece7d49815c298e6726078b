@@ -1,0 +1,60 @@
+1427899124s:1886:"a:5:{s:5:"mtime";i:1420256790;s:7:"content";s:846:"title = "About"
+url = "/about-us"
+layout = "about-us"
+description = "About us page"
+meta_author = "templatemo and József Tamás Herczeg"
+meta_description = "Free restaurant theme by templatemo, converted for OctoberCMS"
+meta_keywords = "business, restaurant, blog, responsive, bootstrap"
+==
+<div id="heading">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading-content">
+                    <h2>About Us</h2>
+                    <span>Home / <a href="{{ 'samples/about-us'|page }}">About us</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="timeline-post">
+    {% partial "about/intro" %}
+</div>
+
+
+<div id="our-team">
+    {% partial "about/team" %}
+</div>
+
+
+<div id="testimonails">
+    {% partial "about/feedback" %}
+</div>
+";s:8:"settings";a:8:{s:5:"title";s:5:"About";s:3:"url";s:9:"/about-us";s:6:"layout";s:8:"about-us";s:11:"description";s:13:"About us page";s:11:"meta_author";s:37:"templatemo and József Tamás Herczeg";s:16:"meta_description";s:61:"Free restaurant theme by templatemo, converted for OctoberCMS";s:13:"meta_keywords";s:49:"business, restaurant, blog, responsive, bootstrap";s:10:"components";a:0:{}}s:4:"code";N;s:6:"markup";s:553:"<div id="heading">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading-content">
+                    <h2>About Us</h2>
+                    <span>Home / <a href="{{ 'samples/about-us'|page }}">About us</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="timeline-post">
+    {% partial "about/intro" %}
+</div>
+
+
+<div id="our-team">
+    {% partial "about/team" %}
+</div>
+
+
+<div id="testimonails">
+    {% partial "about/feedback" %}
+</div>";}";

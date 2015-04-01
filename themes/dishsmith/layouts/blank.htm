@@ -1,0 +1,50 @@
+description = "Blank layout"
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ this.page.title }} - DishSmith</title>
+        <meta name="author" content="October CMS">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}" />
+        <link href="{{ [
+            'assets/css/theme.css',
+            'assets/vendor/bootstrap-select/bootstrap-select.css',
+        ]|theme }}" rel="stylesheet">
+    </head>
+    <body class="blank-layout">
+
+        <!-- Content -->
+        <section id="layout-content">
+            <div class="container">
+                {% page %}
+            </div>
+        </section>
+
+        <!-- Scripts -->
+        <script src="{{ [
+            'assets/javascript/jquery.js', 
+            'assets/javascript/app.js'
+        ]|theme }}"></script>
+        {% framework %}
+
+        {% placeholder scripts %}
+
+        <!-- Fonts -->
+        <script type="text/javascript">
+          WebFontConfig = {
+            google: { families: [ 'Lobster+Two:400,400italic,700,700italic:latin' ] }
+          };
+          (function() {
+            var wf = document.createElement('script');
+            wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+              '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+            wf.type = 'text/javascript';
+            wf.async = 'true';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wf, s);
+          })(); 
+        </script>
+
+    </body>
+</html>

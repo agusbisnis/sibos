@@ -1,0 +1,27 @@
+title = "Planner"
+url = "/planner"
+layout = "default"
+==
+<?php
+function onStart()
+{
+    $this['currentPage'] = 'plan';
+
+    $user = Auth::getUser();
+    $this['dishes'] = Responsiv\DishSmith\Models\Dish::with('ingredients')->ofUser($user)->ofWeek($this['activeWeek'])->get();
+}
+?>
+==
+{% put scripts %}
+<script>
+    $('#dishesContainer').dragScroll();
+</script>
+{% endput %}
+
+<div class="planner-page">
+    <div class="dishes-container" id="dishesContainer">
+        <ul class="dishes">
+            {% partial 'planner/dishes' %}
+        </ul>
+    </div>
+</div>

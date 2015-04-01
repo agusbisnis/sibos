@@ -1,0 +1,81 @@
+title = "Pilih Agen"
+url = "/mobile/pilihagen"
+layout = "struk"
+hidden = "0"
+
+==
+<?php
+function onStart()
+{
+    $this['currentPage'] = 'kelurahan';
+     $trayek=$this['trayek']=Ipomi\Tiket\Models\Trayek::find(intval(Input::get('trayek')));
+     $this['jmlpenumpang']=intval(Input::get('jmlpenumpang'));
+    $this['agens'] = Ipomi\Tiket\Models\Agen::get()->where('kota_id', $trayek->id)
+                                                      ->where('po_id', $trayek->id_asal);
+    
+}
+
+
+?>
+==
+{% put head %}
+
+     <link href="{{ [ 'assets2/css/style-responsive.css',
+     'assets2/css/table-responsive.css']|theme  }}" rel="stylesheet">
+
+{% endput %}
+
+
+
+<section class="struk-page wrapper back-ipomi" id="sub-content">
+        <h3>Pilih Agen
+    <img src="{{ 'assets2/img/icon/icon-home-32-dark.png'|theme }}" class="pull-right">
+</h3>
+<hr />
+      {{ asal.nama }}
+        <div class="row mt">
+              <div class="col-lg-12">
+                      
+              
+                          <div id="no-more-tables">
+                              <table class="table table-bordered table-striped table-condensed cf transparan">
+                                  <thead class="cf">
+                                  <tr>
+                                      <th>Nama Agen</th>
+                                      <th>Alamat</th>
+                                      
+                                      <th>Pesan</th>
+                                      
+                                  </tr>
+                                  </thead>
+                                  <tbody>
+                                   
+                                  {% for a in agens %}
+                                  <form class="form-horizontal style-form" action="{{ 'mobile/datapenumpang'|page }}">
+                                  <input type="hidden" name="agen" value="{{ a.id }}" />
+                                  <input type="hidden" name="trayek" value="{{ trayek.id }}" />
+                                  <input type="hidden" name="jmlpenumpang" value="{{ jmlpenumpang }}" />
+                                  <tr>
+                                  
+                                      <td data-title="Nama Agen">{{ a.nama }}</td>
+                                      <td data-title="Alamat">{{ a.alamat }}</td>
+                                      
+                                      <td class="numeric">
+                     <button class="btn btn-warning btn-block putih" type="submit"><i class="fa fa-check pull-left"></i>&nbsp;Pesan / Reserve</button>
+
+                                        
+                                      </td>
+                                  </tr>
+                                  {% endfor %}
+                                  </tbody>
+                              </table>
+                         </div>
+
+                          
+
+                      
+                  </div><!-- /col-lg-12 -->
+</div>
+    
+      </section>
+

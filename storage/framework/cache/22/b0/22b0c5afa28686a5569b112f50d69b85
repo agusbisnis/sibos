@@ -1,0 +1,83 @@
+1427420978s:3502:"a:5:{s:5:"mtime";i:1427168698;s:7:"content";s:1683:"<div id="sidebar" class="nav-collapse">
+        <!-- sidebar menu start-->
+        <div class="leftside-navigation">
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a href="{{ 'agen/home'|page }}" class="{% if this.page.id == 'agen/home' %}active{% endif %}">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                      <a href="{{ 'agen/pesan'|page }}" class="{% if this.page.id == 'agen/pesan' %}active{% endif %}">
+                          <i class="fa fa-laptop"></i>
+                          <span>Pemesanan</span>
+                      </a>
+                  </li>
+
+                   <li>
+                      <a href="{{ 'agen/booking'|page }}" class="{% if this.page.id == 'agen/booking' %}active{% endif %}">
+                          <i class="fa fa-qrcode"></i>
+                          <span>Cek Booking</span>
+                      </a>
+                  </li>
+
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-laptop"></i>
+                        <span>Keuangan</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="boxed_page.html">Fee Agen</a></li>
+                        <li><a href="horizontal_menu.html">Transaksi Bus</a></li>
+                        <li><a href="language_switch.html">Penjualan Channel</a></li>
+                    </ul>
+                </li>
+            
+
+        </ul>
+    </div>
+</div>";s:8:"settings";a:1:{s:10:"components";a:0:{}}s:4:"code";N;s:6:"markup";s:1683:"<div id="sidebar" class="nav-collapse">
+        <!-- sidebar menu start-->
+        <div class="leftside-navigation">
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a href="{{ 'agen/home'|page }}" class="{% if this.page.id == 'agen/home' %}active{% endif %}">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                      <a href="{{ 'agen/pesan'|page }}" class="{% if this.page.id == 'agen/pesan' %}active{% endif %}">
+                          <i class="fa fa-laptop"></i>
+                          <span>Pemesanan</span>
+                      </a>
+                  </li>
+
+                   <li>
+                      <a href="{{ 'agen/booking'|page }}" class="{% if this.page.id == 'agen/booking' %}active{% endif %}">
+                          <i class="fa fa-qrcode"></i>
+                          <span>Cek Booking</span>
+                      </a>
+                  </li>
+
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-laptop"></i>
+                        <span>Keuangan</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="boxed_page.html">Fee Agen</a></li>
+                        <li><a href="horizontal_menu.html">Transaksi Bus</a></li>
+                        <li><a href="language_switch.html">Penjualan Channel</a></li>
+                    </ul>
+                </li>
+            
+
+        </ul>
+    </div>
+</div>";}";

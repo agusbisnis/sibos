@@ -1,0 +1,193 @@
+//
+// Draggable
+//
+
+body.dragging, body.dragging * {
+    cursor: move !important;
+}
+
+.dragged {
+    position: absolute !important;
+    .opacity(.5);
+    z-index: 2000;
+}
+
+.dish-placeholder {
+    background: #ECF0F1;
+}
+
+@supports (flex-wrap: wrap) {
+    .dishes-page {
+        .dishes {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            > div {
+                flex: 0 0 auto;
+            }
+        }
+    }
+}
+
+.dishes-page {
+
+    position: relative;
+    overflow: hidden;
+    margin: 20px;
+
+    //
+    // Screens
+    //
+
+    .dish-form, .dishes {
+        .transition(all 0.5s ease);
+    }
+
+    //
+    // Off screen elements
+    //
+
+    .dishes {
+        top: 0;
+    }
+
+    .typeahead {
+        z-index: 999;
+    }
+
+    .dish-form {
+        width: 100%;
+        position: relative;
+        height: 0;
+        overflow: hidden;
+        .opacity(0);
+        top: -50px;
+    }
+
+    &.edit-mode {
+        .dishes {
+            .opacity(0);
+            height: 0;
+            overflow: hidden;
+            top: -50px;
+        }
+        .dish-form {
+            height: auto;
+            .opacity(1);
+            top: 0;
+        }
+    }
+
+    //
+    // Dish list
+    //
+
+    .dishes {
+        position: relative;
+        > div {
+            position: relative;
+            padding: 0 0 10px 10px;
+            min-height: 100px;
+        }
+    }
+
+    //
+    // Dish item
+    //
+
+    .dish-item {
+        border: 2px solid transparent;
+        color: #555;
+
+        h3.title {
+            color: #C0392B;
+            .text-overflow();
+            display: block;
+        }
+
+        .image {
+            padding: 10px 0;
+            img { 
+                width: 90px;
+                .border-radius(999px);
+            }
+        }
+
+        .hover { display: none; }
+
+        &:hover {
+            border-color: #ECF0F1;
+            .normal { display: none; }
+            .hover { display: block; }
+        }
+
+        &.dragged {
+            border-color: #ECF0F1;
+            .normal { display: block; }
+            .hover { display: none; }
+        }
+    }
+
+    // New dish button
+
+    .new-dish {
+        display: block;
+        border: 2px dashed #ECF0F1;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        text-decoration: none;
+        i {
+            font-size:64px;
+            color: #ECF0F1;
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            margin-top: -32px;
+        }
+
+        p {
+            color: #ECF0F1;
+            font-size: 32px;
+            line-height: 64px;
+            top: 50%;
+            left: 100px;
+            margin-top: -32px;
+            position: absolute;
+        }
+
+        &:hover {
+            border-color: #BDC3C7;
+        }
+    }
+
+    //
+    // Dish Form
+    //
+
+    .dish-form {
+
+        .dish-item {
+            border-color: #ECF0F1;
+            width: 100%;
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        button.selectpicker { 
+            .border-left-radius(0);
+            margin-left: -1px;
+        }
+
+        .list-group {
+            p.lead { margin:0; }
+            button.close { position: relative; top: 5px; }
+        }
+
+    }
+
+}

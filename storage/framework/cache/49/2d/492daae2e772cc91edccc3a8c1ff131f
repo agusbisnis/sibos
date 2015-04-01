@@ -1,0 +1,87 @@
+1427899126s:3328:"a:5:{s:5:"mtime";i:1423907906;s:7:"content";s:1596:"<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="heading-section">
+                <h2>Mengapa pesan tiket di IPOMI?</h2>
+                <img src="{{ 'assets/images/under-heading.png'|theme }}" alt="" >
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-sm-6">
+            <div class="service-item">
+               <img src="{{ 'assets/images/info-gadget-image.png'|theme }}" alt="" >
+           
+                    <hr />
+                    <p>Dapat diakses dengan mudah melalui berbagai gadget</p>
+                </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="service-item">
+               <img src="{{ 'assets/images/info-change-location-image.png'|theme }}" alt="" >
+           
+                    <hr />
+                    <p>Ke berbagai destinasi seluruh Indonesia</p>
+                </div>
+         </div>
+         <div class="col-md-3 col-sm-6">
+            <div class="service-item">
+               <img src="{{ 'assets/images/info-change-bus-image.png'|theme }}" alt="" >
+           
+                    <hr />
+                    <p>Sesuaikan waktu bepergian anda</p>
+                </div>
+         </div>
+         <div class="col-md-3 col-sm-6">
+            <div class="service-item">
+               <img src="{{ 'assets/images/info-change-seat-image.png'|theme }}" alt="" >
+           
+                    <hr />
+                    <p>Kepastian mendapat kursi yang pas</p>
+                </div>
+         </div>
+    </div>    
+</div>";s:8:"settings";a:1:{s:10:"components";a:0:{}}s:4:"code";N;s:6:"markup";s:1596:"<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="heading-section">
+                <h2>Mengapa pesan tiket di IPOMI?</h2>
+                <img src="{{ 'assets/images/under-heading.png'|theme }}" alt="" >
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-sm-6">
+            <div class="service-item">
+               <img src="{{ 'assets/images/info-gadget-image.png'|theme }}" alt="" >
+           
+                    <hr />
+                    <p>Dapat diakses dengan mudah melalui berbagai gadget</p>
+                </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="service-item">
+               <img src="{{ 'assets/images/info-change-location-image.png'|theme }}" alt="" >
+           
+                    <hr />
+                    <p>Ke berbagai destinasi seluruh Indonesia</p>
+                </div>
+         </div>
+         <div class="col-md-3 col-sm-6">
+            <div class="service-item">
+               <img src="{{ 'assets/images/info-change-bus-image.png'|theme }}" alt="" >
+           
+                    <hr />
+                    <p>Sesuaikan waktu bepergian anda</p>
+                </div>
+         </div>
+         <div class="col-md-3 col-sm-6">
+            <div class="service-item">
+               <img src="{{ 'assets/images/info-change-seat-image.png'|theme }}" alt="" >
+           
+                    <hr />
+                    <p>Kepastian mendapat kursi yang pas</p>
+                </div>
+         </div>
+    </div>    
+</div>";}";

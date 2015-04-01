@@ -1,0 +1,177 @@
+title = "mobile"
+url = "/mobile"
+hidden = "0"
+==
+<?php
+public function onStart()
+{
+    if (Auth::check())
+        return Redirect::to('mobile/home');
+}
+
+public function onEnter()
+{
+   $rules = [
+        'username'    => 'required|min:2|max:64',
+        'password' => 'required|min:2'
+    ];
+
+    $validation = Validator::make(post(), $rules);
+    if ($validation->fails())
+        throw new October\Rain\Support\ValidationException($validation);
+
+    $user = Auth::findUserByLogin(post('username'));
+   /*  if (!$user) {
+        // Register user
+        $user = Auth::register([
+            'username' => post('username'),
+            'password_confirmation' => post('password'),
+            'password' => post('password')
+        ], true);
+    }
+*/
+    // Authenticate user
+    $user = Auth::authenticate([
+        'username' => post('username'),
+        'password' => post('password')
+    ], true);
+
+    return Redirect::to('mobile/home');
+}
+?>
+==
+{% put scripts %}
+<script>
+jQuery(document).ready(function($){
+    $(document).on('ajaxFail', '#entranceForm', function() {
+        var errorMsg = $('#entranceForm').data('error-message')
+
+        if (errorMsg == 'A user was found to match all plain text credentials however hashed credential [password] did not match.')
+            errorMsg = 'Detail salah <a href="#">Lupa kata sandi?</a>';
+
+        $('#entranceError').show().html(errorMsg)
+    })
+})
+</script>
+{% endput %}
+<html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>IPOMI</title>
+	<meta name="description" content="Learn how to recreate the preloader from Cantina Negrar. Tutorial for a passionate front-end web developers by Petr Tichy.">
+
+	<!--iOS -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+	<link rel="stylesheet" href="{{ 'assets2/css/normalize.css'|theme }}" >
+	<link rel="stylesheet" href="{{ 'assets2/css/main.css'|theme }}" >
+	<script src="{{ 'assets/vendor/modernizr-2.6.1-respond-1.1.0.min.js'|theme }}"></script>
+
+	<link href="{{ 'assets2/css/bootstrap.css'|theme }}" rel="stylesheet">
+    
+    <link href="{{ 'assets2/font-awesome/css/font-awesome.css'|theme }}" rel="stylesheet" />
+        
+    
+    <link href="{{ 'assets2/css/style.css'|theme }}" rel="stylesheet">
+    <link href="{{ 'assets2/css/style-responsive.css'|theme }}" rel="stylesheet">
+	
+</head>
+<body class="demo oranye">
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+
+	<!-- Demo content -->			
+	<div id="demo-content">
+
+		
+
+		<div id="loader-wrapper">
+			<div id="loader"></div>
+
+			<div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+
+		</div>
+
+		<div id="content" >
+		<div class="tengah-login">
+		<img src="{{ 'assets/images/logoipomidark.png'|theme }}"></div>
+         <div id="entranceError" class="alert alert-danger lead" style="display: none"></div>
+			<form
+                            id="entranceForm"
+                            class="form-login"
+                            data-request-error="return false"
+                            data-request="onEnter" >
+
+		        <h2 class="form-login-heading">SELAMAT DATANG</h2>
+		        <div class="login-wrap">
+		            
+                            <div class="form-group">
+                                <input
+                                    name="username"
+                                    type="text"
+                                    class="form-control signin-field"
+                                    value=""
+                                    placeholder="Username"
+                                    id="inputUsername" />
+                                <label class="signin-field-icon fui-mail" for="signin-username"></label>
+                            </div>
+                            <div class="form-group">
+                                <input
+                                    name="password"
+                                    type="password"
+                                    class="form-control signin-field"
+                                    value=""
+                                    placeholder="Password"
+                                    id="inputPassword" />
+                                <label class="signin-field-icon fui-user" for="signin-name"></label>
+                            </div>
+
+                            
+
+                            
+
+                            <button class="btn btn-theme btn-lg btn-block" type="submit">Masuk</button>
+		            
+		            <label class="checkbox">
+		            	<span class="pull-left">
+		            	<a class="" href="{{ 'mobile/home'|page }}">
+		                    Daftar
+		                </a>
+		                </span>
+		                <span class="pull-right">
+		                    <a data-toggle="modal" href="{{ 'register'|page}} "> Lupa Password?</a>
+		
+		                </span>
+		            </label>
+		            
+		
+		        </div>
+		
+		          
+		
+		      </form>
+		</div>
+
+	</div>
+	<!-- /Demo content -->
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="{{ 'assets/vendor/jquery-1.11.0.min.js'|theme }}"><\/script>')</script>
+	<script src="{{ 'assets2/js/bootstrap.min.js'|theme }}"></script>
+	<script src="{{ 'assets2/js/main.js'|theme }}"></script>
+	<!--BACKSTRETCH-->
+    <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+    <script type="text/javascript" src="{{ 'assets2/js/jquery.backstretch.min.js'|theme }}"></script>
+    <script>
+        $.backstretch("{{ 'assets/images/bg-image-color.png'|theme }}", {speed: 500});
+    </script>
+    {% framework extras %}
+        {% scripts %}
+</body>
+</html>

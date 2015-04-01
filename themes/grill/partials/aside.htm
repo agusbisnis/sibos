@@ -1,0 +1,60 @@
+<aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu" id="nav-accordion">
+                  
+                  
+              	  <p class="centered"><a href="#"><img src="{{ user.getAvatarThumb }}"></a></p>
+              	  <h4 class="centered">{{ user.name }} </h4>
+              	  <h5 class="centered">{{user.street_addr}}</h5>	
+
+                  <li class="mt">
+                      <a href="{{ 'agen/home'|page }}" class="{% if this.page.id == 'agen/home' %}active{% endif %}">
+                          <i class="fa fa-dashboard"></i>
+                          <span>Dashboard</span>
+                      </a>
+                  </li>
+
+                  <li>
+                      <a href="{{ 'agen/pesan'|page }}" class="{% if this.page.id == 'agen/pesan' %}active{% endif %}">
+                          <i class="fa fa-dashboard"></i>
+                          <span>Pemesanan</span>
+                      </a>
+                  </li>
+
+                  <li>
+                      <a href="{{ 'agen/pesan'|page }}" class="{% if this.page.id == 'agen/pesan' %}active{% endif %}">
+                          <i class="fa fa-dashboard"></i>
+                          <span>Keberangkatan</span>
+                      </a>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-cogs"></i>
+                          <span>Keuangan</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="{{ 'kategoriproduk'|page }}" class="{% if this.page.id == 'kategoriproduk' %}active{% endif %}">Penjualan Tiket</a></li>
+                          <li><a href="{{ 'jenisproduk'|page }}" class="{% if this.page.id == 'jenisproduk' %}active{% endif %}">Fee Keberangkatan</a></li>
+                          <li><a  href="{{ 'satuanproduksi'|page }}" class="{% if this.page.id == 'satuanproduksi' %}active{% endif %}">Rekapitulasi</a></li>
+                          <li><a  href="{{ 'kategorienergi'|page }}" class="{% if this.page.id == 'kategorienergi' %}active{% endif %}">Deposit</a></li>
+                         
+
+                      </ul>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="{{ 'perusahaan'|page }}" class="{% if this.page.id == 'perusahaan' %}active{% endif %}">
+                          <i class="fa fa-desktop"></i>
+                          <span>Kotak Pesan</span>
+                      </a>
+                  </li>
+
+                  
+                 
+
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>

@@ -1,0 +1,48 @@
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 new-dish-item">
+    <a
+        href="javascript:;" 
+        class="new-dish" 
+        data-request="onNewDish"
+        data-request-success="toggleEditMode()"
+        data-request-update="'dishes/form': '#partialDishesForm'">
+        <i class="icon-plus"></i>
+        <p>New dish</p>
+    </a>
+</div>
+
+{% for dish in dishes %}
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 dish-item" data-dish-id="{{ dish.id }}">
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="image">
+                    <img src="{{ dish.getPic }}" alt="" />
+                </div>
+            </div>
+            <div class="col-xs-8">
+                <h3 class="title">{{ dish.name }}</h3>
+                <div class="normal">
+                    <ul class="list-inline">
+                        <li><i class="icon-calendar-empty"></i> Week {{ dish.getWeek(loop.index) }}</li>
+                        <li><i class="icon-shopping-cart"></i> {{ dish.ingredients|length }}</li>
+                    </ul>
+                </div>
+                <div class="hover">
+                    <a
+                        href="javascript:;"
+                        data-request="onModifyDish"
+                        data-request-data="dish_id: {{ dish.id }}"
+                        data-request-update="'dishes/form': '#partialDishesForm'"
+                        data-request-success="toggleEditMode()"
+                        class="btn btn-sm btn-default">Modify</a>
+                    <a
+                        href="javascript:;"
+                        data-request="onDeleteDish"
+                        data-request-data="dish_id: {{ dish.id }}"
+                        data-request-confirm="Are you sure?"
+                        data-request-update="'dishes/dishes': '#partialDishesDishes'"
+                        class="btn btn-sm btn-danger">Remove</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}

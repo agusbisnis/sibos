@@ -1,0 +1,8 @@
+1.0.1: First version of Bus
+1.0.2:
+        - Create the Ipomi Buses table
+        - create_buses_table.php
+1.0.3:
+        - Create the Ipomi Pos table
+        - create_pos_table.php
+

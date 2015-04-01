@@ -1,0 +1,142 @@
+1427899124s:5580:"a:5:{s:5:"mtime";i:1423908225;s:7:"content";s:2710:"title = "Jadwal"
+url = "/jadwal"
+layout = "default"
+hidden = "0"
+==
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+<table width="700px">
+	<tr>
+		<th rowspan="2">KERETA API</th>
+		<th colspan="2">TANGGAL / JAM</th>
+	</tr>
+	<tr>
+		<th class="width25">BERANGKAT</th>
+		<th class="width25">DATANG   </th>
+	</tr>
+	<tr>
+		<td colspan="3"> </td>
+	</tr>
+	<tr class="row0">
+		<td><b>BOGOWONTO</b> (135)</td>
+		<td class="center">09:40<br>17.02.2015</td>
+		<td class="center">12:32<br>17.02.2015</td>
+	</tr>
+	<tr>
+		<td colspan="3">
+			<table width="700px">
+				<tr class="row1">
+					<td>Eko (C)</td>
+					<td class="width10 center">Rp.</td>
+					<td class="width25 right">165.000</td>
+					<td class="width25 center">
+						<script type="text/javascript">
+							function validateFormOnSubmit_C_135(theForm){
+								var CekSisa	= document.form_C_135.ticket_seat.value;
+								if (CekSisa<2){
+									alert("Jumlah Permintaan Tempat Duduk Tidak Tersedia");
+									return false;
+								}
+								return true;
+							};
+						</script>
+						<form id="form_C_135" name="form_C_135" method="post" action="?_it8tnz=Mw==&_8dnts=Ym9va2luZw==" onsubmit="return validateFormOnSubmit_C_135(this)">
+							<input type="hidden" name="tanggal" value="20150217#Selasa, 17 Februari 2015" />
+							<input type="hidden" name="origination" value="LPN#LEMPUYANGAN" />
+							<input type="hidden" name="destination" value="PWT#PURWOKERTO" />
+							<input type="hidden" name="adult" value="2" /><input type="hidden" name="children" value="0" />
+							<input type="hidden" name="infant" value="0" /><input type="hidden" name="train_no" value="135" />
+							<input type="hidden" name="train_name" value="BOGOWONTO" />
+							<input type="hidden" name="train_dep_date" value="20150217" />
+							<input type="hidden" name="train_dep_time" value="0940" />
+							<input type="hidden" name="train_arv_date" value="20150217" />
+							<input type="hidden" name="train_arv_time" value="1232" />
+							<input type="hidden" name="fare_class" value="K" />
+							<input type="hidden" name="fare_subclass" value="C" />
+							<input type="hidden" name="fare_adult" value="165000" />
+							<input type="hidden" name="fare_children" value="165000" />
+							<input type="hidden" name="fare_infant" value="0" />
+							<input type="hidden" name="ticket_seat" value="80" />
+							<input type="hidden" name="booking" value="true" />
+							<input type="submit" name="Submit" value="Booking" class="itButton" title="Sisa Tempat Duduk : 80">
+						</form>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+</div>
+</div>
+</div>";s:8:"settings";a:5:{s:5:"title";s:6:"Jadwal";s:3:"url";s:7:"/jadwal";s:6:"layout";s:7:"default";s:6:"hidden";s:1:"0";s:10:"components";a:0:{}}s:4:"code";N;s:6:"markup";s:2637:"<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+<table width="700px">
+	<tr>
+		<th rowspan="2">KERETA API</th>
+		<th colspan="2">TANGGAL / JAM</th>
+	</tr>
+	<tr>
+		<th class="width25">BERANGKAT</th>
+		<th class="width25">DATANG   </th>
+	</tr>
+	<tr>
+		<td colspan="3"> </td>
+	</tr>
+	<tr class="row0">
+		<td><b>BOGOWONTO</b> (135)</td>
+		<td class="center">09:40<br>17.02.2015</td>
+		<td class="center">12:32<br>17.02.2015</td>
+	</tr>
+	<tr>
+		<td colspan="3">
+			<table width="700px">
+				<tr class="row1">
+					<td>Eko (C)</td>
+					<td class="width10 center">Rp.</td>
+					<td class="width25 right">165.000</td>
+					<td class="width25 center">
+						<script type="text/javascript">
+							function validateFormOnSubmit_C_135(theForm){
+								var CekSisa	= document.form_C_135.ticket_seat.value;
+								if (CekSisa<2){
+									alert("Jumlah Permintaan Tempat Duduk Tidak Tersedia");
+									return false;
+								}
+								return true;
+							};
+						</script>
+						<form id="form_C_135" name="form_C_135" method="post" action="?_it8tnz=Mw==&_8dnts=Ym9va2luZw==" onsubmit="return validateFormOnSubmit_C_135(this)">
+							<input type="hidden" name="tanggal" value="20150217#Selasa, 17 Februari 2015" />
+							<input type="hidden" name="origination" value="LPN#LEMPUYANGAN" />
+							<input type="hidden" name="destination" value="PWT#PURWOKERTO" />
+							<input type="hidden" name="adult" value="2" /><input type="hidden" name="children" value="0" />
+							<input type="hidden" name="infant" value="0" /><input type="hidden" name="train_no" value="135" />
+							<input type="hidden" name="train_name" value="BOGOWONTO" />
+							<input type="hidden" name="train_dep_date" value="20150217" />
+							<input type="hidden" name="train_dep_time" value="0940" />
+							<input type="hidden" name="train_arv_date" value="20150217" />
+							<input type="hidden" name="train_arv_time" value="1232" />
+							<input type="hidden" name="fare_class" value="K" />
+							<input type="hidden" name="fare_subclass" value="C" />
+							<input type="hidden" name="fare_adult" value="165000" />
+							<input type="hidden" name="fare_children" value="165000" />
+							<input type="hidden" name="fare_infant" value="0" />
+							<input type="hidden" name="ticket_seat" value="80" />
+							<input type="hidden" name="booking" value="true" />
+							<input type="submit" name="Submit" value="Booking" class="itButton" title="Sisa Tempat Duduk : 80">
+						</form>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+</div>
+</div>
+</div>";}";

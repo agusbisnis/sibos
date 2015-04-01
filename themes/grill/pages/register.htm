@@ -1,0 +1,201 @@
+title = "Daftar"
+url = "/register"
+hidden = "0"
+==
+<?php
+public function onStart()
+{
+    if (Auth::check())
+        return Redirect::to('mobile/home');
+}
+
+public function onEnter()
+{
+   $rules = [
+        'username'    => 'required|min:2|max:64',
+        'password' => 'required|min:2'
+    ];
+
+    $validation = Validator::make(post(), $rules);
+    if ($validation->fails())
+        throw new October\Rain\Support\ValidationException($validation);
+
+  //  $user = Auth::findUserByLogin(post('username'));
+   /*  if (!$user) {
+        // Register user */
+    
+       
+
+        $user = Auth::register([
+            'username' => post('username'),
+            'password_confirmation' => post('password'),
+            'password' => post('password'),
+            'email' => post('email'),
+            'name' => post('name')
+
+            /*,,
+            'profiles()' => $profile
+            'phone' => post('username'),
+            'street_addr' => post('alamat'), 
+            'name' => post('name')*/
+        ], true);
+   // }
+    // Authenticate user
+    /*$user = Auth::authenticate([
+        'username' => post('username'),
+        'password' => post('password')
+    ], true);
+
+    $pengguna = new Rainlab\User\Models\User;
+        $pengguna->email = post('email');
+        $pengguna->phone = post('username');
+        $pengguna->street_addr = post('alamat');
+        $pengguna->save();
+ */$profile = new Ipomi\Tiket\Models\Profile;
+       $profile->user_id=$user->id;
+       $profile->noktp = post('noktp');
+       $profile->save();
+        //$user = Auth::findUserByLogin(post('username'));
+//echo $user->id;
+       
+
+    return Redirect::to('mobile');
+}
+?>
+==
+{% put scripts %}
+<script>
+jQuery(document).ready(function($){
+    $(document).on('ajaxFail', '#entranceForm', function() {
+        var errorMsg = $('#entranceForm').data('error-message')
+
+        if (errorMsg == 'A user was found to match all plain text credentials however hashed credential [password] did not match.')
+            errorMsg = 'Detail salah <a href="#">Lupa kata sandi?</a>';
+
+        $('#entranceError').show().html(errorMsg)
+    })
+})
+</script>
+{% endput %}
+<html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>IPOMI</title>
+	<meta name="description" content="Learn how to recreate the preloader from Cantina Negrar. Tutorial for a passionate front-end web developers by Petr Tichy.">
+
+	<!--iOS -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+	<link rel="stylesheet" href="{{ 'assets2/css/normalize.css'|theme }}" >
+	<link rel="stylesheet" href="{{ 'assets2/css/main.css'|theme }}" >
+	<script src="{{ 'assets/vendor/modernizr-2.6.1-respond-1.1.0.min.js'|theme }}"></script>
+
+	<link href="{{ 'assets2/css/bootstrap.css'|theme }}" rel="stylesheet">
+    
+    <link href="{{ 'assets2/font-awesome/css/font-awesome.css'|theme }}" rel="stylesheet" />
+        
+    
+    <link href="{{ 'assets2/css/style.css'|theme }}" rel="stylesheet">
+    <link href="{{ 'assets2/css/style-responsive.css'|theme }}" rel="stylesheet">
+	
+</head>
+<body class="demo oranye">
+<section id="container" class="oranye" >
+      <!-- **********************************************************************************************************************************************************
+      TOP BAR CONTENT & NOTIFICATIONS
+      *********************************************************************************************************************************************************** -->
+      <!--header start-->
+                {% partial "aheader" %}
+	<!-- Demo content -->			
+	<section class="struk-page wrapper back-ipomi" id="sub-content">
+<h3>Pendaftaran Akun Baru
+    <img src="{{ 'assets2/img/icon/icon-age-mature-32-dark.png'|theme }}" class="pull-right">
+</h3>
+<hr />
+     <div class="row mt">
+              <div class="col-lg-12">
+			<form class="form-horizontal style-form"
+                            data-request-error="return false"
+                            data-request="onEnter" >
+
+		        
+		        
+		            
+                            
+                                <label>Nama Lengkap</label>
+                                <input
+                                    name="name"
+                                    type="text"
+                                    class="form-control signin-field"
+                                    value=""
+                                    
+                                    id="inputUsername" />
+                                
+                           
+                                <label>Nomor Ponsel</label>
+                                <input
+                                    name="username"
+                                    type="text"
+                                    class="form-control signin-field"
+                                    value=""
+                                    
+                                    id="inputUsername" />
+                                
+                           
+                            
+                                <label>Email</label>
+                                <input
+                                    name="email"
+                                    type="text"
+                                    class="form-control signin-field"
+                                    value=""
+                                    
+                                    id="inputUsername" />
+                                
+                            
+                                <label>Kata Sandi</label>
+                                <input
+                                    name="password"
+                                    type="password"
+                                    class="form-control signin-field"
+                                    value=""
+                                    
+                                    id="inputPassword" />
+                                
+                            <label>Nomor KTP</label>
+                                <input
+                                    name="noktp"
+                                    type="text"
+                                    class="form-control signin-field"
+                                    value=""
+                                    
+                                   />
+                               
+                            
+                            <hr />
+
+                            <button class="btn btn-warning btn-lg btn-block putih" type="submit">Daftar</button>
+		            
+		           
+		            
+		
+		        </form>
+              </div>
+              </div>
+		</section>
+        </section>
+
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="{{ 'assets2/js/bootstrap.min.js'|theme }}"></script>
+	
+	
+    
+    {% framework extras %}
+        {% scripts %}
+</body>
+</html>

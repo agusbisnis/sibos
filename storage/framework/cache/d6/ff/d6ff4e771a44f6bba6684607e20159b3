@@ -1,0 +1,155 @@
+1427899124s:6276:"a:5:{s:5:"mtime";i:1426844811;s:7:"content";s:3063:"title = "Pilih Agen"
+url = "/web/pilihagen"
+layout = "default"
+hidden = "0"
+
+==
+<?php
+function onStart()
+{
+    $this['currentPage'] = 'kelurahan';
+     $trayek=$this['trayek']=Ipomi\Tiket\Models\Trayek::find(intval(Input::get('trayek')));
+     $this['jmlpenumpang']=intval(Input::get('jmlpenumpang'));
+    $this['agens'] = Ipomi\Tiket\Models\Agen::get()->where('kota_id', $trayek->id)
+                                                      ->where('po_id', $trayek->id_asal);
+    
+}
+
+
+?>
+==
+{% put head %}
+
+     <link href="{{ [ 'assets2/css/style-responsive.css',
+     'assets2/css/table-responsive.css']|theme  }}" rel="stylesheet">
+
+{% endput %}
+
+
+
+<section class="home-title">
+<div class="container">
+        <h3>Pilih Agen
+    <img src="{{ 'assets2/img/icon/icon-home-32-dark.png'|theme }}" class="pull-right">
+</h3>
+<hr />
+      {{ asal.nama }}
+        <div class="row mt">
+              <div class="col-lg-12">
+                      
+              
+                          <div id="no-more-tables">
+                              <table class="table table-bordered table-striped table-condensed cf transparan">
+                                  <thead class="cf">
+                                  <tr>
+                                      <th>Nama Agen</th>
+                                      <th>Alamat</th>
+                                      
+                                      <th>Pesan</th>
+                                      
+                                  </tr>
+                                  </thead>
+                                  <tbody>
+                                   
+                                  {% for a in agens %}
+                                  <form class="form-horizontal style-form" action="{{ 'web/datapenumpang'|page }}">
+                                  <input type="hidden" name="agen" value="{{ a.id }}" />
+                                  <input type="hidden" name="trayek" value="{{ trayek.id }}" />
+                                  <input type="hidden" name="jmlpenumpang" value="{{ jmlpenumpang }}" />
+                                  <tr>
+                                  
+                                      <td data-title="Nama Agen">{{ a.nama }}</td>
+                                      <td data-title="Alamat">{{ a.alamat }}</td>
+                                      
+                                      <td class="numeric">
+                     <button class="btn btn-warning btn-block putih" type="submit"><i class="fa fa-check pull-left"></i>&nbsp;Pesan / Reserve</button>
+
+                                        
+                                      </td>
+                                  </tr>
+                                  {% endfor %}
+                                  </tbody>
+                              </table>
+                         </div>
+
+                          
+
+                      
+                  </div><!-- /col-lg-12 -->
+</div>
+    </div>
+      </section>
+
+";s:8:"settings";a:5:{s:5:"title";s:10:"Pilih Agen";s:3:"url";s:14:"/web/pilihagen";s:6:"layout";s:7:"default";s:6:"hidden";s:1:"0";s:10:"components";a:0:{}}s:4:"code";s:411:"
+function onStart()
+{
+    $this['currentPage'] = 'kelurahan';
+     $trayek=$this['trayek']=Ipomi\Tiket\Models\Trayek::find(intval(Input::get('trayek')));
+     $this['jmlpenumpang']=intval(Input::get('jmlpenumpang'));
+    $this['agens'] = Ipomi\Tiket\Models\Agen::get()->where('kota_id', $trayek->id)
+                                                      ->where('po_id', $trayek->id_asal);
+    
+}
+
+
+";s:6:"markup";s:2549:"{% put head %}
+
+     <link href="{{ [ 'assets2/css/style-responsive.css',
+     'assets2/css/table-responsive.css']|theme  }}" rel="stylesheet">
+
+{% endput %}
+
+
+
+<section class="home-title">
+<div class="container">
+        <h3>Pilih Agen
+    <img src="{{ 'assets2/img/icon/icon-home-32-dark.png'|theme }}" class="pull-right">
+</h3>
+<hr />
+      {{ asal.nama }}
+        <div class="row mt">
+              <div class="col-lg-12">
+                      
+              
+                          <div id="no-more-tables">
+                              <table class="table table-bordered table-striped table-condensed cf transparan">
+                                  <thead class="cf">
+                                  <tr>
+                                      <th>Nama Agen</th>
+                                      <th>Alamat</th>
+                                      
+                                      <th>Pesan</th>
+                                      
+                                  </tr>
+                                  </thead>
+                                  <tbody>
+                                   
+                                  {% for a in agens %}
+                                  <form class="form-horizontal style-form" action="{{ 'web/datapenumpang'|page }}">
+                                  <input type="hidden" name="agen" value="{{ a.id }}" />
+                                  <input type="hidden" name="trayek" value="{{ trayek.id }}" />
+                                  <input type="hidden" name="jmlpenumpang" value="{{ jmlpenumpang }}" />
+                                  <tr>
+                                  
+                                      <td data-title="Nama Agen">{{ a.nama }}</td>
+                                      <td data-title="Alamat">{{ a.alamat }}</td>
+                                      
+                                      <td class="numeric">
+                     <button class="btn btn-warning btn-block putih" type="submit"><i class="fa fa-check pull-left"></i>&nbsp;Pesan / Reserve</button>
+
+                                        
+                                      </td>
+                                  </tr>
+                                  {% endfor %}
+                                  </tbody>
+                              </table>
+                         </div>
+
+                          
+
+                      
+                  </div><!-- /col-lg-12 -->
+</div>
+    </div>
+      </section>";}";

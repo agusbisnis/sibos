@@ -1,0 +1,29 @@
+title = "Plugin components"
+url = "/demo/plugins"
+layout = "default"
+hidden = "0"
+
+[daftarArmada]
+
+
+[busList]
+==
+<div class="jumbotron title-js">
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <h1>Plugin components</h1>
+                <p>Plugins can provide components, simple building blocks that enrich any page or layout. Check out the todo example below.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    {% component 'busList' %}
+    {% component 'daftarArmada' %}
+    {{ dump(daftarArmada) }}
+</div>
+
+<!-- Page Explanation -->
+<div class="container">{% partial "explain/plugins.htm" %}</div>

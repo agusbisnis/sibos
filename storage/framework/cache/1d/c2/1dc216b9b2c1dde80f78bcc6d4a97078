@@ -1,0 +1,48 @@
+1427899129s:1751:"a:5:{s:5:"mtime";i:1423907312;s:7:"content";s:809:"<div class="top-footer">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="subscribe-form">
+                <span>Hubungi kami</span>
+                    <form role="form" method="get" class="subscribeForm">
+                        <input id="subscribe" type="text" />
+
+                        <input type="submit" id="submitButton" />
+                    </form>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="social-bottom">
+                <span>Follow us:</span>
+                    <ul>
+                        <li><a href="#" class="fa fa-facebook"></a></li>
+                        <li><a href="#" class="fa fa-twitter"></a></li>
+                        
+                    </ul>
+            </div>
+        </div>
+    </div>
+</div>
+";s:8:"settings";a:1:{s:10:"components";a:0:{}}s:4:"code";N;s:6:"markup";s:808:"<div class="top-footer">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="subscribe-form">
+                <span>Hubungi kami</span>
+                    <form role="form" method="get" class="subscribeForm">
+                        <input id="subscribe" type="text" />
+
+                        <input type="submit" id="submitButton" />
+                    </form>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="social-bottom">
+                <span>Follow us:</span>
+                    <ul>
+                        <li><a href="#" class="fa fa-facebook"></a></li>
+                        <li><a href="#" class="fa fa-twitter"></a></li>
+                        
+                    </ul>
+            </div>
+        </div>
+    </div>
+</div>";}";

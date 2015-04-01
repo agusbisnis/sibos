@@ -1,0 +1,375 @@
+1427899123s:13516:"a:5:{s:5:"mtime";i:1427038828;s:7:"content";s:6684:"title = "asia"
+url = "/asia"
+hidden = "0"
+==
+<?php
+public function onStart()
+{
+    if (Auth::check()) {
+       // return Redirect::to('agen/home');
+            $user = $this['user'] = Auth::getUser();
+            /*$agen = Ipomi\Tiket\Models\Agen::where('user_id', '=', $user->id)->first();
+            if (!$agen) {
+                Flash::error('Salah Masuk Cuy');
+            } else {
+                return Redirect::to('agen/home');
+            }*/
+    }
+}
+
+public function onEnter()
+{
+   $rules = [
+        'username'    => 'required|min:2|max:64',
+        'password' => 'required|min:2'
+    ];
+
+    $validation = Validator::make(post(), $rules);
+    if ($validation->fails())
+        throw new October\Rain\Support\ValidationException($validation);
+
+    //$user = Auth::findUserByLogin(post('username'));
+    
+   /*  if (!$user) {
+        // Register user
+        $user = Auth::register([
+            'username' => post('username'),
+            'password_confirmation' => post('password'),
+            'password' => post('password')
+        ], true);
+    }
+*/
+    // Authenticate user
+    $user = Auth::authenticate([
+        'username' => post('username'),
+        'password' => post('password')
+    ], true);
+
+    //$user = $this['user'] = Auth::getUser();
+/*
+    $agen = Ipomi\Tiket\Models\Agen::where('user_id', '=', $user->id)->first();
+    if (!$agen) {
+       Flash::error('Error saving settings');
+    } else {
+       return Redirect::to('agen/home');
+    }*/
+}
+?>
+==
+{% put scripts %}
+<script>
+jQuery(document).ready(function($){
+    $(document).on('ajaxFail', '#entranceForm', function() {
+        var errorMsg = $('#entranceForm').data('error-message')
+
+        if (errorMsg == 'A user was found to match all plain text credentials however hashed credential [password] did not match.')
+            errorMsg = 'Detail salah <a href="#">Lupa kata sandi?</a>';
+
+        $('#entranceError').show().html(errorMsg)
+    })
+})
+</script>
+{% endput %}
+<html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>ASIA</title>
+	<meta name="description" content="Learn how to recreate the preloader from Cantina Negrar. Tutorial for a passionate front-end web developers by Petr Tichy.">
+
+	<!--iOS -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+	<link rel="stylesheet" href="{{ 'assets2/css/normalize.css'|theme }}" >
+	<link rel="stylesheet" href="{{ 'assets2/css/main.css'|theme }}" >
+	<script src="{{ 'assets/vendor/modernizr-2.6.1-respond-1.1.0.min.js'|theme }}"></script>
+
+	<link href="{{ 'assets2/css/bootstrap.css'|theme }}" rel="stylesheet">
+    
+    <link href="{{ 'assets2/font-awesome/css/font-awesome.css'|theme }}" rel="stylesheet" />
+        
+    
+    <link href="{{ 'assets2/css/style.css'|theme }}" rel="stylesheet">
+    <link href="{{ 'assets2/css/style-responsive.css'|theme }}" rel="stylesheet">
+	
+</head>
+<body class="demo biru">
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+
+	<!-- Demo content -->			
+	<div id="demo-content" class="biru">
+
+		
+
+		<div id="loader-wrapper" class="biru">
+			<div id="loader" class="biru"></div>
+
+			<div class="loader-section section-left biru"></div>
+            <div class="loader-section section-right biru"></div>
+
+		</div>
+
+		<div id="content" class="biru">
+		<div class="tengah-login">
+		<img src="{{ 'assets/images/azhar_logo.png'|theme }}"></div>
+       
+         <div id="entranceError" class="alert alert-danger lead" style="display: none"></div>
+			<form
+                            id="entranceForm"
+                            class="form-login"
+                            data-request-error="return true"
+                            data-request="onEnter" >
+
+		        <h2 class="form-login-heading">ASIA</h2>
+		        <div class="login-wrap">
+		            
+                            <div class="form-group">
+                                <input
+                                    name="username"
+                                    type="text"
+                                    class="form-control signin-field"
+                                    value=""
+                                    placeholder="Username"
+                                    id="inputUsername" />
+                                <label class="signin-field-icon fui-mail" for="signin-username"></label>
+                            </div>
+                            <div class="form-group">
+                                <input
+                                    name="password"
+                                    type="password"
+                                    class="form-control signin-field"
+                                    value=""
+                                    placeholder="Password"
+                                    id="inputPassword" />
+                                <label class="signin-field-icon fui-user" for="signin-name"></label>
+                            </div>
+
+                             {% flash %}
+            <div class="alert alert-error">{{message}}</div>
+        {% endflash %}
+
+                            
+
+                            <button class="btn btn-info btn-lg btn-block" type="submit">Masuk</button>
+		            
+		            <label class="checkbox">
+		            	<span class="pull-left">
+		            	<a class="" href="{{ 'agen/home'|page }}">
+		                    Daftar
+		                </a>
+		                </span>
+		                <span class="pull-right">
+		                    <a data-toggle="modal" href="{{ 'register'|page}} "> Lupa Password?</a>
+		
+		                </span>
+		            </label>
+		            
+		
+		        </div>
+		
+		          
+		
+		      </form>
+		</div>
+
+	</div>
+	<!-- /Demo content -->
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="{{ 'assets/vendor/jquery-1.11.0.min.js'|theme }}"><\/script>')</script>
+	<script src="{{ 'assets2/js/bootstrap.min.js'|theme }}"></script>
+	<script src="{{ 'assets2/js/main.js'|theme }}"></script>
+	
+    {% framework extras %}
+        {% scripts %}
+</body>
+</html>";s:8:"settings";a:4:{s:5:"title";s:4:"asia";s:3:"url";s:5:"/asia";s:6:"hidden";s:1:"0";s:10:"components";a:0:{}}s:4:"code";s:1478:"
+public function onStart()
+{
+    if (Auth::check()) {
+       // return Redirect::to('agen/home');
+            $user = $this['user'] = Auth::getUser();
+            /*$agen = Ipomi\Tiket\Models\Agen::where('user_id', '=', $user->id)->first();
+            if (!$agen) {
+                Flash::error('Salah Masuk Cuy');
+            } else {
+                return Redirect::to('agen/home');
+            }*/
+    }
+}
+
+public function onEnter()
+{
+   $rules = [
+        'username'    => 'required|min:2|max:64',
+        'password' => 'required|min:2'
+    ];
+
+    $validation = Validator::make(post(), $rules);
+    if ($validation->fails())
+        throw new October\Rain\Support\ValidationException($validation);
+
+    //$user = Auth::findUserByLogin(post('username'));
+    
+   /*  if (!$user) {
+        // Register user
+        $user = Auth::register([
+            'username' => post('username'),
+            'password_confirmation' => post('password'),
+            'password' => post('password')
+        ], true);
+    }
+*/
+    // Authenticate user
+    $user = Auth::authenticate([
+        'username' => post('username'),
+        'password' => post('password')
+    ], true);
+
+    //$user = $this['user'] = Auth::getUser();
+/*
+    $agen = Ipomi\Tiket\Models\Agen::where('user_id', '=', $user->id)->first();
+    if (!$agen) {
+       Flash::error('Error saving settings');
+    } else {
+       return Redirect::to('agen/home');
+    }*/
+}
+";s:6:"markup";s:5144:"{% put scripts %}
+<script>
+jQuery(document).ready(function($){
+    $(document).on('ajaxFail', '#entranceForm', function() {
+        var errorMsg = $('#entranceForm').data('error-message')
+
+        if (errorMsg == 'A user was found to match all plain text credentials however hashed credential [password] did not match.')
+            errorMsg = 'Detail salah <a href="#">Lupa kata sandi?</a>';
+
+        $('#entranceError').show().html(errorMsg)
+    })
+})
+</script>
+{% endput %}
+<html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>ASIA</title>
+	<meta name="description" content="Learn how to recreate the preloader from Cantina Negrar. Tutorial for a passionate front-end web developers by Petr Tichy.">
+
+	<!--iOS -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+	<link rel="stylesheet" href="{{ 'assets2/css/normalize.css'|theme }}" >
+	<link rel="stylesheet" href="{{ 'assets2/css/main.css'|theme }}" >
+	<script src="{{ 'assets/vendor/modernizr-2.6.1-respond-1.1.0.min.js'|theme }}"></script>
+
+	<link href="{{ 'assets2/css/bootstrap.css'|theme }}" rel="stylesheet">
+    
+    <link href="{{ 'assets2/font-awesome/css/font-awesome.css'|theme }}" rel="stylesheet" />
+        
+    
+    <link href="{{ 'assets2/css/style.css'|theme }}" rel="stylesheet">
+    <link href="{{ 'assets2/css/style-responsive.css'|theme }}" rel="stylesheet">
+	
+</head>
+<body class="demo biru">
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+
+	<!-- Demo content -->			
+	<div id="demo-content" class="biru">
+
+		
+
+		<div id="loader-wrapper" class="biru">
+			<div id="loader" class="biru"></div>
+
+			<div class="loader-section section-left biru"></div>
+            <div class="loader-section section-right biru"></div>
+
+		</div>
+
+		<div id="content" class="biru">
+		<div class="tengah-login">
+		<img src="{{ 'assets/images/azhar_logo.png'|theme }}"></div>
+       
+         <div id="entranceError" class="alert alert-danger lead" style="display: none"></div>
+			<form
+                            id="entranceForm"
+                            class="form-login"
+                            data-request-error="return true"
+                            data-request="onEnter" >
+
+		        <h2 class="form-login-heading">ASIA</h2>
+		        <div class="login-wrap">
+		            
+                            <div class="form-group">
+                                <input
+                                    name="username"
+                                    type="text"
+                                    class="form-control signin-field"
+                                    value=""
+                                    placeholder="Username"
+                                    id="inputUsername" />
+                                <label class="signin-field-icon fui-mail" for="signin-username"></label>
+                            </div>
+                            <div class="form-group">
+                                <input
+                                    name="password"
+                                    type="password"
+                                    class="form-control signin-field"
+                                    value=""
+                                    placeholder="Password"
+                                    id="inputPassword" />
+                                <label class="signin-field-icon fui-user" for="signin-name"></label>
+                            </div>
+
+                             {% flash %}
+            <div class="alert alert-error">{{message}}</div>
+        {% endflash %}
+
+                            
+
+                            <button class="btn btn-info btn-lg btn-block" type="submit">Masuk</button>
+		            
+		            <label class="checkbox">
+		            	<span class="pull-left">
+		            	<a class="" href="{{ 'agen/home'|page }}">
+		                    Daftar
+		                </a>
+		                </span>
+		                <span class="pull-right">
+		                    <a data-toggle="modal" href="{{ 'register'|page}} "> Lupa Password?</a>
+		
+		                </span>
+		            </label>
+		            
+		
+		        </div>
+		
+		          
+		
+		      </form>
+		</div>
+
+	</div>
+	<!-- /Demo content -->
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="{{ 'assets/vendor/jquery-1.11.0.min.js'|theme }}"><\/script>')</script>
+	<script src="{{ 'assets2/js/bootstrap.min.js'|theme }}"></script>
+	<script src="{{ 'assets2/js/main.js'|theme }}"></script>
+	
+    {% framework extras %}
+        {% scripts %}
+</body>
+</html>";}";

@@ -1,0 +1,14 @@
+name: Ipomi
+code: Ipomi
+description: Ipomi Ticket Access
+author: Agus Soleh
+authorUrl: 'http://www.ipomi.com/'
+
+# [...]
+
+form:
+    fields:
+        site_name:
+            label: IPOMI
+            comment: The website name as it should appear on the front-end
+            default: IPOMI

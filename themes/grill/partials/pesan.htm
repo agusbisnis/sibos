@@ -1,0 +1,82 @@
+<h3>Pemesanan
+    <img src="{{ 'assets2/img/icon/icon-home-32-dark.png'|theme }}" class="pull-right">
+</h3>
+<hr />
+
+		  	<div class="row">
+              <div class="col-lg-12">
+
+
+            <!-- panel -->
+
+            <form class="form-horizontal style-form">
+             
+         
+  
+                  <label>Dari</label>
+             <span class="input-group">
+               <span class="input-group-addon transparan"><img src="{{ 'assets2/img/icon/bus-dari.png'|theme }}" class="pull-right"></span>
+              <select class="form-control transparan" name="dari">
+                {% for k in kotas %}
+                                       <option value="{{ k.id }}" >{{ k.nama }}</option>
+                                    {% endfor %}
+
+              </select>
+              </span>
+              
+              <!--<select class="form-control">
+                <option>Terminal Pulogadung</option><option>Alfamart Pantura1</option><option>Indomaret Marco</option></select> -->
+              <label>Menuju</label>
+              <span class="input-group">
+              <span class="input-group-addon transparan"><img src="{{ 'assets2/img/icon/bus-menuju.png'|theme }}" class="pull-right"></span>
+                        <select class="form-control transparan" name="ke">
+                            {% for k in kotas %}
+                                  <option value="{{ k.id }}" >{{ k.nama }}</option>
+                              {% endfor %}
+                      </select>
+              </span>
+             
+    
+            
+            <label>Tanggal Berangkat</label>
+            <span class="input-group">
+                          
+                                <input name="arrival" type="text" id="userBookingArrival" data-date="{{"now"|date('Y-m-d')}}" data-date-format="dd-mm-yyyy" class="form-control transparan">
+                                <span class="input-group-addon transparan"><a ng-click="open($event)"><img src="{{ 'assets2/img/icon/tgl.png'|theme }}" class="pull-right"></a></span>
+                          
+                            
+                        </span>  
+            
+            
+                      
+           
+
+
+            <label>Jumlah Penumpang</label>
+            <p class="input-group">
+              <span class="input-group-addon transparan"><a ng-click="open($event)"><img src="{{ 'assets2/img/icon/kid.png'|theme }}" class="pull-right"></a></span>
+              <select class="form-control transparan">
+              
+              <option>0</option><option selected="selected">1</option><option>2</option><option>3</option><option>4</option></select>
+              </p>
+    
+
+    
+
+
+          
+          <span>
+          
+              <a href="javascript:;"
+                              data-request="onTrayek"
+                              data-request-update="hasil: '#hasil'"
+                              class="btn btn-warning btn-lg form-control showSingle" target="hasil">
+                              <i class="fa fa-search pull-left"></i>&nbsp;Simpan
+                          </a>
+                          
+
+          </span>
+</form>
+</div>
+</div>
+    

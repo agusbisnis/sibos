@@ -1,0 +1,155 @@
+1427899124s:6766:"a:5:{s:5:"mtime";i:1426845789;s:7:"content";s:3308:"title = "Input Data Penumpang"
+url = "/web/datapenumpang"
+layout = "default"
+hidden = "0"
+
+==
+<?php
+function onStart()
+{
+    $this['currentPage'] = 'datapenumpang';
+    $this['trayek']=Input::get('trayek');
+    $this['jmlpenumpang']=Input::get('jmlpenumpang');
+    $this['agen'] =Input::get('agen');
+    $this['user'] = Auth::getUser();
+   
+}
+
+
+?>
+==
+{% put head %}
+
+     <link href="{{ [ 'assets2/css/style-responsive.css',
+     'assets2/css/table-responsive.css']|theme  }}" rel="stylesheet">
+
+{% endput %}
+
+
+
+<section class="home-title">
+<div class="container">
+        <h3>Data Pemesan
+    <img src="{{ 'assets2/img/icon/icon-age-mature-32-dark.png'|theme }}" class="pull-right">
+</h3>
+<hr />
+      {{ asal.nama }}
+        <form class="form-horizontal style-form" action="{{ 'web/konfirmasipesan'|page }}">
+        <div class="row mt">
+              <div class="col-lg-12">
+                     
+                           
+                            <input type="hidden" name="agen" value="{{ agen }}" />
+                            <input type="hidden" name="trayek" value="{{ trayek }}" />
+                            <input type="hidden" name="jmlpenumpang" value="{{ jmlpenumpang }}" />
+                           
+                              <label class="col-sm-2 col-sm-2 control-label">Nama</label>
+                              <div class="col-sm-10">
+                                  <input type="text" class="form-control transparan" name="nama"  id="input1" value="{{ user.name }}" >
+                              </div>
+                              
+                              
+                              <label class="col-sm-2 col-sm-2 control-label">E-Mail</label>
+                              <div class="col-sm-10">
+                                  <input type="text" class="form-control transparan" name="email"  value="{{ user.email }}" >
+                              </div>
+                              
+                              <label class="col-sm-2 col-sm-2 control-label">No Yang Bisa Dihubungi</label>
+                              <div class="col-sm-10">
+                                  <input type="text" class="form-control transparan" name="telp" value="{{ user.phone }}" >
+                              </div>
+                              
+                              <label class="col-sm-2 col-sm-2 control-label">Alamat</label>
+                              <div class="col-sm-10">
+                                  <input type="text" class="form-control transparan" name="alamat" value="{{ user.street_addr }}" >
+                              </div>
+                         <hr />
+                        <br />
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-2 col-sm-2 control-label"> </div>
+                         <div class="col-sm-10">
+                          <button class="btn btn-warning btn-lg btn-block putih" type="submit"><i class="fa fa-check pull-left"></i>&nbsp;Pesan/Reserve</button>
+                          </div>
+                          </div>
+</form>
+                        </div>  
+
+                      
+         
+      </section>
+
+";s:8:"settings";a:5:{s:5:"title";s:20:"Input Data Penumpang";s:3:"url";s:18:"/web/datapenumpang";s:6:"layout";s:7:"default";s:6:"hidden";s:1:"0";s:10:"components";a:0:{}}s:4:"code";s:258:"
+function onStart()
+{
+    $this['currentPage'] = 'datapenumpang';
+    $this['trayek']=Input::get('trayek');
+    $this['jmlpenumpang']=Input::get('jmlpenumpang');
+    $this['agen'] =Input::get('agen');
+    $this['user'] = Auth::getUser();
+   
+}
+
+
+";s:6:"markup";s:2933:"{% put head %}
+
+     <link href="{{ [ 'assets2/css/style-responsive.css',
+     'assets2/css/table-responsive.css']|theme  }}" rel="stylesheet">
+
+{% endput %}
+
+
+
+<section class="home-title">
+<div class="container">
+        <h3>Data Pemesan
+    <img src="{{ 'assets2/img/icon/icon-age-mature-32-dark.png'|theme }}" class="pull-right">
+</h3>
+<hr />
+      {{ asal.nama }}
+        <form class="form-horizontal style-form" action="{{ 'web/konfirmasipesan'|page }}">
+        <div class="row mt">
+              <div class="col-lg-12">
+                     
+                           
+                            <input type="hidden" name="agen" value="{{ agen }}" />
+                            <input type="hidden" name="trayek" value="{{ trayek }}" />
+                            <input type="hidden" name="jmlpenumpang" value="{{ jmlpenumpang }}" />
+                           
+                              <label class="col-sm-2 col-sm-2 control-label">Nama</label>
+                              <div class="col-sm-10">
+                                  <input type="text" class="form-control transparan" name="nama"  id="input1" value="{{ user.name }}" >
+                              </div>
+                              
+                              
+                              <label class="col-sm-2 col-sm-2 control-label">E-Mail</label>
+                              <div class="col-sm-10">
+                                  <input type="text" class="form-control transparan" name="email"  value="{{ user.email }}" >
+                              </div>
+                              
+                              <label class="col-sm-2 col-sm-2 control-label">No Yang Bisa Dihubungi</label>
+                              <div class="col-sm-10">
+                                  <input type="text" class="form-control transparan" name="telp" value="{{ user.phone }}" >
+                              </div>
+                              
+                              <label class="col-sm-2 col-sm-2 control-label">Alamat</label>
+                              <div class="col-sm-10">
+                                  <input type="text" class="form-control transparan" name="alamat" value="{{ user.street_addr }}" >
+                              </div>
+                         <hr />
+                        <br />
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-2 col-sm-2 control-label"> </div>
+                         <div class="col-sm-10">
+                          <button class="btn btn-warning btn-lg btn-block putih" type="submit"><i class="fa fa-check pull-left"></i>&nbsp;Pesan/Reserve</button>
+                          </div>
+                          </div>
+</form>
+                        </div>  
+
+                      
+         
+      </section>";}";

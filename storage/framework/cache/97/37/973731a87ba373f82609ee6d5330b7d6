@@ -1,0 +1,235 @@
+1427899123s:8728:"a:5:{s:5:"mtime";i:1426781813;s:7:"content";s:4293:"title = "Pilih Pembayaran"
+url = "/mobile/pilihbayar"
+
+hidden = "0"
+
+==
+<?php
+function onStart()
+{
+   /* $this['currentPage'] = 'kelurahan';
+     
+     $rules = [
+        'username'    => 'required|min:2|max:64',
+        'password' => 'required|min:2'
+    ];
+
+   /* $validation = Validator::make(post(), $rules);
+    if ($validation->fails())
+        throw new October\Rain\Support\ValidationException($validation);
+*/
+/*        $user = Auth::findUserByLogin(post('username'));
+   if (!$user) {
+     $user = Auth::register([
+            'username' => post('username'),
+            'password_confirmation' => post('password'),
+            'password' => post('password'),
+            'email' => post('email'),
+            'name' => post('name')
+            /*,
+            'phone' => post('username'),
+            'street_addr' => post('alamat'), 
+            'name' => post('name')*/
+     //   ], true);
+   //};
+   // }
+    // Authenticate user
+    /*$user = Auth::authenticate([
+        'username' => post('username'),
+        'password' => post('password')
+    ], true);
+
+    $pengguna = new Rainlab\User\Models\User;
+        $pengguna->email = post('email');
+        $pengguna->phone = post('username');
+        $pengguna->street_addr = post('alamat');
+        $pengguna->save();
+ */
+        //$user = Auth::findUserByLogin(post('username'));
+//echo $user->id;
+       $profile = new Ipomi\Tiket\Models\Profile;
+      // $profile->user_id=$user->id;
+       $profile->noktp = post('noktp');
+       $profile->save();
+}
+
+
+?>
+==
+{% put head %}
+
+     <link href="{{ [ 'assets2/css/style-responsive.css',
+     'assets2/css/table-responsive.css']|theme  }}" rel="stylesheet">
+
+{% endput %}
+
+
+
+<section class="struk-page wrapper back-ipomi" id="sub-content">
+        <h3>Pilih Pembayaran
+    <img src="{{ 'assets2/img/icon/icon-slec-button-32-dark.png'|theme }}" class="pull-right">
+</h3>
+<hr />
+      {{ asal.nama }}
+        <div class="row mt">
+              <div class="col-lg-12">
+                     
+                           <form class="form-horizontal style-form" action="{{ 'mobile/sukses'|page }}">
+                            <input type="hidden" name="id" value="{{ a.id }}" />
+                           
+                           <div class="radio">
+                              <label>
+                                <input type="radio" name="opsiBayar" id="optionsRadios1" value="atm">
+                                ATM/Payment Point
+                                </label>
+                            </div>
+                            Pembayaran melalui ATM dsaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa adsdsadsdad dsaaaaaaaaaaa
+                            <div class="radio">
+                              <label>
+                                <input type="radio" name="opsiBayar" id="optionsRadios2" value="bank">
+                                Transfer Bank
+                              </label>
+                            </div>
+                            <div class="radio">
+                              <label>
+                                <input type="radio" name="opsiBayar" id="optionsRadios3" value="pulsa">
+                                Potong Pulsa
+                              </label>
+                            </div>
+                            <div class="radio">
+                              <label>
+                                <input type="radio" name="opsiBayar" id="optionsRadios4" value="tunai">
+                                Tunai
+                              </label>
+                            </div>
+
+                              
+                              
+                              
+                         <hr />
+                         <div class="col-sm-12">
+                          <button class="btn btn-warning btn-lg btn-block putih" type="submit"><i class="fa fa-check pull-left"></i>&nbsp;Pesan/Reserve</button>
+                          </div>
+                          
+
+                          
+
+                      
+                  </div><!-- /col-lg-12 -->
+</div>
+    
+      </section>
+
+";s:8:"settings";a:4:{s:5:"title";s:16:"Pilih Pembayaran";s:3:"url";s:18:"/mobile/pilihbayar";s:6:"hidden";s:1:"0";s:10:"components";a:0:{}}s:4:"code";s:1493:"
+function onStart()
+{
+   /* $this['currentPage'] = 'kelurahan';
+     
+     $rules = [
+        'username'    => 'required|min:2|max:64',
+        'password' => 'required|min:2'
+    ];
+
+   /* $validation = Validator::make(post(), $rules);
+    if ($validation->fails())
+        throw new October\Rain\Support\ValidationException($validation);
+*/
+/*        $user = Auth::findUserByLogin(post('username'));
+   if (!$user) {
+     $user = Auth::register([
+            'username' => post('username'),
+            'password_confirmation' => post('password'),
+            'password' => post('password'),
+            'email' => post('email'),
+            'name' => post('name')
+            /*,
+            'phone' => post('username'),
+            'street_addr' => post('alamat'), 
+            'name' => post('name')*/
+     //   ], true);
+   //};
+   // }
+    // Authenticate user
+    /*$user = Auth::authenticate([
+        'username' => post('username'),
+        'password' => post('password')
+    ], true);
+
+    $pengguna = new Rainlab\User\Models\User;
+        $pengguna->email = post('email');
+        $pengguna->phone = post('username');
+        $pengguna->street_addr = post('alamat');
+        $pengguna->save();
+ */
+        //$user = Auth::findUserByLogin(post('username'));
+//echo $user->id;
+       $profile = new Ipomi\Tiket\Models\Profile;
+      // $profile->user_id=$user->id;
+       $profile->noktp = post('noktp');
+       $profile->save();
+}
+
+
+";s:6:"markup";s:2705:"{% put head %}
+
+     <link href="{{ [ 'assets2/css/style-responsive.css',
+     'assets2/css/table-responsive.css']|theme  }}" rel="stylesheet">
+
+{% endput %}
+
+
+
+<section class="struk-page wrapper back-ipomi" id="sub-content">
+        <h3>Pilih Pembayaran
+    <img src="{{ 'assets2/img/icon/icon-slec-button-32-dark.png'|theme }}" class="pull-right">
+</h3>
+<hr />
+      {{ asal.nama }}
+        <div class="row mt">
+              <div class="col-lg-12">
+                     
+                           <form class="form-horizontal style-form" action="{{ 'mobile/sukses'|page }}">
+                            <input type="hidden" name="id" value="{{ a.id }}" />
+                           
+                           <div class="radio">
+                              <label>
+                                <input type="radio" name="opsiBayar" id="optionsRadios1" value="atm">
+                                ATM/Payment Point
+                                </label>
+                            </div>
+                            Pembayaran melalui ATM dsaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa adsdsadsdad dsaaaaaaaaaaa
+                            <div class="radio">
+                              <label>
+                                <input type="radio" name="opsiBayar" id="optionsRadios2" value="bank">
+                                Transfer Bank
+                              </label>
+                            </div>
+                            <div class="radio">
+                              <label>
+                                <input type="radio" name="opsiBayar" id="optionsRadios3" value="pulsa">
+                                Potong Pulsa
+                              </label>
+                            </div>
+                            <div class="radio">
+                              <label>
+                                <input type="radio" name="opsiBayar" id="optionsRadios4" value="tunai">
+                                Tunai
+                              </label>
+                            </div>
+
+                              
+                              
+                              
+                         <hr />
+                         <div class="col-sm-12">
+                          <button class="btn btn-warning btn-lg btn-block putih" type="submit"><i class="fa fa-check pull-left"></i>&nbsp;Pesan/Reserve</button>
+                          </div>
+                          
+
+                          
+
+                      
+                  </div><!-- /col-lg-12 -->
+</div>
+    
+      </section>";}";

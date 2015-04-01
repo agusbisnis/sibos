@@ -1,0 +1,22 @@
+title = "Shopping"
+url = "/shopping"
+layout = "default"
+==
+<?php
+function onStart()
+{
+    $this['currentPage'] = 'shop';
+
+    $user = Auth::getUser();
+    $dishes = Responsiv\DishSmith\Models\Dish::with('ingredients')->ofUser($user)->ofWeek($this['activeWeek'])->get();
+    $this['ingredients'] = Responsiv\DishSmith\Models\Dish::mergeIngredients($dishes);
+}
+?>
+==
+
+<div class="shopping-page">
+    <h1><i class="icon-shopping-cart"></i> Week A</h1>
+    <div class="row shopping-list">
+        {% partial 'shopping/ingredients' %}
+    </div>
+</div>

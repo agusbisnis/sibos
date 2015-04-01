@@ -1,0 +1,179 @@
+1427420975s:8367:"a:5:{s:5:"mtime";i:1427368226;s:7:"content";s:4109:"title = "Pilih Bus"
+url = "/mobile/hasil"
+layout = "struk"
+hidden = "0"
+
+==
+<?php
+function onStart()
+{
+    $this['currentPage'] = 'kelurahan';
+     $asal=$this['asal']=Ipomi\Tiket\Models\Kota::find(intval(Input::get('dari')));
+     $tujuan=$this['tujuan']=Ipomi\Tiket\Models\Kota::find(intval(Input::get('ke')));
+    //$user = Auth::getUser();
+    $tgl=date("Y-m-d",strtotime(Input::get('pergi')));
+    $this['jmlpenumpang']=intval(Input::get('jmlpenumpang'));
+
+    $this['trayeks'] = Ipomi\Tiket\Models\Trayek::get()->where('id_asal', intval(Input::get('dari')))
+                                                      ->where('id_tujuan', intval(Input::get('ke')))
+                                                      ->where('tgl', $tgl);
+    //$this['kecamatans']= Sibos\Struk\Models\Kecamatan::get();
+   // $this['ingredients'] = Responsiv\DishSmith\Models\Dish::mergeIngredients($dishes);
+}
+
+
+?>
+==
+{% put head %}
+
+     <link href="{{ [ 'assets2/css/style-responsive.css',
+     'assets2/css/table-responsive.css']|theme  }}" rel="stylesheet">
+
+{% endput %}
+
+
+
+<section class="struk-page wrapper back-ipomi" id="sub-content">
+        <h3>Pilih Bus
+    <img src="{{ 'assets2/img/icon/icon-bus-mirror-32-dark.png'|theme }}" class="pull-right">
+</h3>
+<hr />
+<span><div class="alert alert-warning"><b>{{ asal.nama }} - {{ tujuan.nama }}</b><div class="pull-right">{{ tgl|date("d-M-Y") }}</div>
+</div>
+      </span>
+        <div class="row mt">
+              <div class="col-lg-12">
+                      
+              
+                          <div id="no-more-tables">
+                              <table class="table table-bordered table-striped table-condensed cf transparan">
+                                  <thead class="cf">
+                                  <tr>
+                                      <th>Nama PO</th>
+                                      <th>No Armada</th>
+                                      <th>Datang</th>
+                                      <th>Tiba</th>
+                                      <th>Tersedia</th>
+                                      <th class="numeric">Harga</th>
+                                      <th>Pesan</th>
+                                      
+                                  </tr>
+                                  </thead>
+                                  <tbody>
+                                   
+                                  {% for t in trayeks %}
+                                  <form class="form-horizontal style-form" action="{{ 'mobile/pilihagen'|page }}">
+                                  <input type="hidden" name="trayek" value="{{ t.id }}" />
+                                  <input type="hidden" name="jmlpenumpang" value="{{ jmlpenumpang }}" />
+                                  <tr>
+                                  
+                                      <td data-title="Nama PO">{{ t.bus.po.nama }}</td>
+                                      <td data-title="No Armada">{{ t.bus.nama }}</td>
+                                      <td data-title="Datang">{{ t.jamdatang|date("H:i") }}</td>
+                                      <td data-title="Tiba">{{ t.jamtiba|date("H:i") }}</td>
+                                      <td data-title="Tersedia">{{ t.bus.jmlseat }}</td>
+                                      <td data-title="Harga" class="numeric">Rp {{ t.harga|number_format(2, ',', '.')}}</td>
+                                      <td class="numeric">
+                     <button class="btn btn-warning btn-block putih" type="submit"><i class="fa fa-check pull-left"></i>&nbsp;Pesan / Reserve</button>
+
+                                        
+                                      </td>
+                                  </tr>
+                                  {% endfor %}
+                                  </tbody>
+                              </table>
+                         </div>
+
+                          
+
+                      
+                  </div><!-- /col-lg-12 -->
+</div>
+    
+      </section>
+
+";s:8:"settings";a:5:{s:5:"title";s:9:"Pilih Bus";s:3:"url";s:13:"/mobile/hasil";s:6:"layout";s:5:"struk";s:6:"hidden";s:1:"0";s:10:"components";a:0:{}}s:4:"code";s:835:"
+function onStart()
+{
+    $this['currentPage'] = 'kelurahan';
+     $asal=$this['asal']=Ipomi\Tiket\Models\Kota::find(intval(Input::get('dari')));
+     $tujuan=$this['tujuan']=Ipomi\Tiket\Models\Kota::find(intval(Input::get('ke')));
+    //$user = Auth::getUser();
+    $tgl=date("Y-m-d",strtotime(Input::get('pergi')));
+    $this['jmlpenumpang']=intval(Input::get('jmlpenumpang'));
+
+    $this['trayeks'] = Ipomi\Tiket\Models\Trayek::get()->where('id_asal', intval(Input::get('dari')))
+                                                      ->where('id_tujuan', intval(Input::get('ke')))
+                                                      ->where('tgl', $tgl);
+    //$this['kecamatans']= Sibos\Struk\Models\Kecamatan::get();
+   // $this['ingredients'] = Responsiv\DishSmith\Models\Dish::mergeIngredients($dishes);
+}
+
+
+";s:6:"markup";s:3175:"{% put head %}
+
+     <link href="{{ [ 'assets2/css/style-responsive.css',
+     'assets2/css/table-responsive.css']|theme  }}" rel="stylesheet">
+
+{% endput %}
+
+
+
+<section class="struk-page wrapper back-ipomi" id="sub-content">
+        <h3>Pilih Bus
+    <img src="{{ 'assets2/img/icon/icon-bus-mirror-32-dark.png'|theme }}" class="pull-right">
+</h3>
+<hr />
+<span><div class="alert alert-warning"><b>{{ asal.nama }} - {{ tujuan.nama }}</b><div class="pull-right">{{ tgl|date("d-M-Y") }}</div>
+</div>
+      </span>
+        <div class="row mt">
+              <div class="col-lg-12">
+                      
+              
+                          <div id="no-more-tables">
+                              <table class="table table-bordered table-striped table-condensed cf transparan">
+                                  <thead class="cf">
+                                  <tr>
+                                      <th>Nama PO</th>
+                                      <th>No Armada</th>
+                                      <th>Datang</th>
+                                      <th>Tiba</th>
+                                      <th>Tersedia</th>
+                                      <th class="numeric">Harga</th>
+                                      <th>Pesan</th>
+                                      
+                                  </tr>
+                                  </thead>
+                                  <tbody>
+                                   
+                                  {% for t in trayeks %}
+                                  <form class="form-horizontal style-form" action="{{ 'mobile/pilihagen'|page }}">
+                                  <input type="hidden" name="trayek" value="{{ t.id }}" />
+                                  <input type="hidden" name="jmlpenumpang" value="{{ jmlpenumpang }}" />
+                                  <tr>
+                                  
+                                      <td data-title="Nama PO">{{ t.bus.po.nama }}</td>
+                                      <td data-title="No Armada">{{ t.bus.nama }}</td>
+                                      <td data-title="Datang">{{ t.jamdatang|date("H:i") }}</td>
+                                      <td data-title="Tiba">{{ t.jamtiba|date("H:i") }}</td>
+                                      <td data-title="Tersedia">{{ t.bus.jmlseat }}</td>
+                                      <td data-title="Harga" class="numeric">Rp {{ t.harga|number_format(2, ',', '.')}}</td>
+                                      <td class="numeric">
+                     <button class="btn btn-warning btn-block putih" type="submit"><i class="fa fa-check pull-left"></i>&nbsp;Pesan / Reserve</button>
+
+                                        
+                                      </td>
+                                  </tr>
+                                  {% endfor %}
+                                  </tbody>
+                              </table>
+                         </div>
+
+                          
+
+                      
+                  </div><!-- /col-lg-12 -->
+</div>
+    
+      </section>";}";

@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Post
+
+# Model Form Field configuration
+form: $/aff/gethelp/models/post/fields.yaml
+
+# Model Class name
+modelClass: Aff\GetHelp\Models\Post
+
+# Default redirect location
+defaultRedirect: aff/gethelp/post
+
+# Create page
+create:
+    title: Create Post
+    redirect: aff/gethelp/post/update/:id
+    redirectClose: aff/gethelp/post
+
+# Update page
+update:
+    title: Edit Post
+    redirect: aff/gethelp/post
+    redirectClose: aff/gethelp/post
+
+# Preview page
+preview:
+    title: Preview Post

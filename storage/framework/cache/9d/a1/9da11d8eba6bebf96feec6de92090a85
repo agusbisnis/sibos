@@ -1,0 +1,36 @@
+1427899128s:1351:"a:5:{s:5:"mtime";i:1423902740;s:7:"content";s:609:"<div id="top-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="home-account">
+                    
+                    <a href="{{ 'home'|page }}"><img src="{{ 'assets/images/logo-ipomi.png'|theme }}" title="Ipomi" alt="Ipomi" ></a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="cart-info">
+                    <i class="fa fa-phone"></i>
+                    <a href="#">Hotline :</a> (021) 123456 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+";s:8:"settings";a:1:{s:10:"components";a:0:{}}s:4:"code";N;s:6:"markup";s:608:"<div id="top-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="home-account">
+                    
+                    <a href="{{ 'home'|page }}"><img src="{{ 'assets/images/logo-ipomi.png'|theme }}" title="Ipomi" alt="Ipomi" ></a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="cart-info">
+                    <i class="fa fa-phone"></i>
+                    <a href="#">Hotline :</a> (021) 123456 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>";}";

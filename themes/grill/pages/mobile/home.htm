@@ -1,0 +1,93 @@
+title = "Mobile Home"
+url = "/mobile/home"
+layout = "struk"
+hidden = "0"
+
+==
+<?php
+function onStart()
+{
+    $this['currentPage'] = 'kelurahan';
+
+    //$user = Auth::getUser();
+    $this['kotas']= Ipomi\Tiket\Models\Kota::get();
+    
+    
+    //$this['kecamatans']= Sibos\Struk\Models\Kecamatan::get();
+   // $this['ingredients'] = Responsiv\DishSmith\Models\Dish::mergeIngredients($dishes);
+}
+
+function onTrayek()
+{
+    
+
+    $this['trayeks'] = Ipomi\Tiket\Models\Trayek::get()->where('id_asal', intval(post('dari')))
+                                                      ->where('id_tujuan', intval(post('ke')));
+    
+    
+}
+function onAgen()
+{
+    
+
+    $this['agens'] = Ipomi\Tiket\Models\Agen::get();
+    
+    
+}
+function onNew()
+{
+    $kelurahan = new Sibos\Struk\Models\Kelurahan;
+    $this['kecamatans'] = Sibos\Struk\Models\Kecamatan::get();
+    $this['sessionKey'] = post('session_key', uniqid());
+
+    
+}
+?>
+==
+{% put head %}
+
+     <link href="{{ [ 'assets2/css/style-responsive.css',
+     'assets2/css/table-responsive.css']|theme  }}" rel="stylesheet">
+
+{% endput %}
+
+
+<section class="wrapper back-ipomi" id="sub-content">
+        <div>
+              <h3>Menu Utama
+    <img src="{{ 'assets2/img/icon/icon-home-32-dark.png'|theme }}" class="pull-right putih">
+</h3>
+<hr  />
+
+        <div class="row">
+              <div class="col-lg-12">
+                  <a class="btn btn-warning btn-lg btn-block putih" href="{{ 'mobile/profil'|page }}"> <img src="{{ 'assets2/img/icon/icon-profile-24-dark.png'|theme }}" class="pull-left"><strong>Profil</strong></a>
+            
+
+            <a class="btn btn-warning btn-lg btn-block putih" href="{{ 'mobile/berita'|page }}"> <img src="{{ 'assets2/img/icon/icon-news-24-dark.png'|theme }}" class="pull-left"><strong>Berita</strong></a>
+
+            <a class="btn btn-warning btn-lg btn-block putih" href="{{ 'mobile/pesan'|page }}"> <img src="{{ 'assets2/img/icon/icon-seat-side-24-dark.png'|theme }}" class="pull-left "><strong>Pesan Tiket</strong></a>
+
+            <a class="btn btn-warning btn-lg btn-block putih" href="{{ 'mobile/cek'|page }}"> <img src="{{ 'assets2/img/icon/icon-qr-code-24-dark.png'|theme }}" class="pull-left "><strong>Cek Booking</strong></a>
+
+            <a class="btn btn-warning btn-lg btn-block putih" href="{{ 'mobile/riwayat'|page }}"> <img src="{{ 'assets2/img/icon/icon-riwayat-24-dark.png'|theme }}" class="pull-left "><strong>Riwayat</strong></a>
+
+            <a class="btn btn-warning btn-lg btn-block putih" href="{{ 'mobile/lokasi'|page }}"> <img src="{{ 'assets2/img/icon/icon-location-24-dark.png'|theme }}" class="pull-left "><strong>Lokasi</strong></a>
+
+            <a class="btn btn-warning btn-lg btn-block putih" href="{{ 'mobile/tentang'|page }}"> <img src="{{ 'assets2/img/icon/icon-info-24-dark.png'|theme }}" class="pull-left "><strong>Tentang</strong></a>
+
+             <a class="btn btn-warning btn-lg btn-block putih" href="javascript:;" data-request="onLogout"> <img src="{{ 'assets2/img/icon/icon-key-24-dark.png'|theme }}" class="pull-left "><strong>Keluar</strong></a>
+           
+                   
+
+
+           
+
+           
+            
+        </div>
+      </div>
+
+         </div>
+      </section>
+

@@ -1,0 +1,243 @@
+title = "Dishes"
+url = "/dishes"
+layout = "default"
+hidden = "0"
+
+[daftarArmada]
+==
+<?php
+function onStart()
+{
+    if (post('X_OCTOBER_FILEUPLOAD') == 'X_DISH_PIC_UPLOAD')
+        $this->processFileUpload();
+
+    $this['currentPage'] = 'dish';
+    $this['dishes'] = Responsiv\DishSmith\Models\Dish::ofUser(Auth::getUser())->get();
+}
+
+function processFileUpload()
+{
+    try {
+        $uploadedFile = Input::file('file_data');
+
+        $validationRules = ['max:'.System\Models\File::getMaxFilesize()];
+        $validationRules[] = 'mimes:jpg,jpeg,bmp,png';
+
+        $validation = Validator::make(
+            ['file_data' => $uploadedFile],
+            ['file_data' => $validationRules]
+        );
+
+        if ($validation->fails())
+            throw new October\Rain\Support\ValidationException($validation);
+
+        if (!$uploadedFile->isValid())
+            throw new Exception('File is not valid');
+
+        $file = new System\Models\File();
+        $file->data = $uploadedFile;
+        $file->save();
+
+        $dish = new Responsiv\DishSmith\Models\Dish;
+        $dish->photo()->add($file, post('session_key'));
+        die('success');
+
+    } catch (\Exception $ex) {
+        die($ex->getMessage());
+    }
+}
+
+function onSaveDish()
+{
+    $user = Auth::getUser();
+
+    if (post('dish_id')) {
+        $dish = Responsiv\DishSmith\Models\Dish::ofUser($user)->find(post('dish_id'));
+        $dish->ingredients()->detach();
+        $dish->save(['name' => post('name')], post('session_key'));
+    }
+    else {
+        $dish = Responsiv\DishSmith\Models\Dish::create([
+                'name' => post('name'),
+                'user_id' => $user->id
+            ], post('session_key'));
+    }
+
+    if (!$dish)
+        throw new Exception('Unable to find dish!');
+
+    $ingredients = $this->getIngredients();
+
+    foreach ($ingredients as $ingredientData) {
+        $ingredient = Responsiv\DishSmith\Models\Ingredient::firstOrCreate(['name' => $ingredientData['name']]);
+        $dish->ingredients()->attach($ingredient->id, [
+            'type' => trim($ingredientData['type']),
+            'amount' => trim($ingredientData['amount'])
+        ]);
+    }
+
+    $this['dishes'] = Responsiv\DishSmith\Models\Dish::ofUser(Auth::getUser())->get();
+}
+
+function onAddIngredient()
+{
+    $ingredients = $this->getIngredients();
+
+    if (trim(post('ingredient')) != '') {
+        $ingredients[] = [
+            'name' => post('ingredient'),
+            'type' => post('type', 'units'),
+            'amount' => post('amount', 1),
+        ];
+    }
+
+    $this['ingredients'] = $ingredients;
+    $this['dish'] = ['name' => post('name')];
+}
+
+function getIngredients()
+{
+    $ingredients = [];
+    $ingredientsRaw = post('ingredients');
+    if (isset($ingredientsRaw['name'])) {
+        foreach ($ingredientsRaw['name'] as $key => $value) {
+            $ingredients[] = [
+                'name' => $value,
+                'type' => $ingredientsRaw['type'][$key],
+                'amount' => $ingredientsRaw['amount'][$key]
+            ];
+        }
+    }
+
+    return $ingredients;
+}
+
+function onDeleteDish()
+{
+    if (!post('dish_id'))
+        return;
+
+    $user = Auth::getUser();
+    $dish = Responsiv\DishSmith\Models\Dish::ofUser($user)->find(post('dish_id'));
+    if ($dish) {
+        $dish->ingredients()->detach();
+        $dish->delete();
+    }
+
+    $this['dishes'] = Responsiv\DishSmith\Models\Dish::ofUser($user)->get();
+}
+
+function onModifyDish()
+{
+    if (!post('dish_id'))
+        $this->onNewDish();
+
+    $dish = Responsiv\DishSmith\Models\Dish::ofUser(Auth::getUser())->find(post('dish_id'));
+    if ($dish) {
+        $this['dish'] = $dish;
+        $this['ingredients'] = $dish->getIngredients();
+        $this['ingredientCount'] = $dish->ingredients()->count();
+        $this['sessionKey'] = post('session_key', uniqid());
+
+        $photo = $dish->photo()->withDeferred($this['sessionKey'])->first();
+        $this['dishPhoto'] = ($photo) ? $photo->getPath() : 'http://placehold.it/350x350';
+    }
+    else
+        $this->onNewDish();
+}
+
+function onNewDish()
+{
+    $dish = new Responsiv\DishSmith\Models\Dish;
+    $this['sessionKey'] = post('session_key', uniqid());
+
+    $photo = $dish->photo()->withDeferred($this['sessionKey'])->first();
+    $this['dishPhoto'] = ($photo) ? $photo->getPath() : 'http://placehold.it/350x350';
+
+    $this['ingredientCount'] = 0;
+}
+
+function onSortDishes()
+{
+    if ($sortData = post('sortOrder')) {
+        $ids = array_keys($sortData);
+        $orders = array_values($sortData);
+
+        $dish = new Responsiv\DishSmith\Models\Dish;
+        $dish->setSortableOrder($ids, $orders);
+    }
+
+    $this->onStart();
+}
+?>
+==
+{% put scripts %}
+<script>
+    $(document).on('keyup', '#inputDishName', function(){
+        var name = $(this).val()
+        if (!name) 
+            $('#previewDishName').html('<span class="text-muted">No name</span>')
+        else
+            $('#previewDishName').text(name)
+    })
+
+    function clearIngredientsForm() {
+        $('#inputIngredientAmount, #inputIngredientName').val('')
+        $('#inputIngredientAmount').focus()
+        $('#previewIngredientNumber').text($('#partialDishesIngredients li').length)
+    }
+
+    function removeIngredientItem(el) {
+        $(el).closest('li').remove()
+        $('#previewIngredientNumber').text($('#partialDishesIngredients li').length)
+    }
+
+    function toggleEditMode() {
+        $('#dishesPage').toggleClass('edit-mode');
+        if ($('#dishesPage').hasClass('edit-mode'))
+            $('#inputDishName').focus();
+    }
+
+    $(document).render(function(){
+        var placeholderEl = $('<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 dish-placeholder" />')
+
+        $('#partialDishesDishes').sortable({
+            containerSelector: 'div.dishes',
+            itemSelector: '.dish-item',
+            placeholder: placeholderEl,
+            onDrop: function ($item, container, _super) {
+                _super($item, container)
+
+                /*
+                 * Build an object of ID:ORDER
+                 */
+                var orderData = {}
+
+                $('#partialDishesDishes .dish-item').each(function(index){
+                    var id = $(this).data('dish-id')
+                    orderData[id] = index + 1
+                })
+
+                $('#partialDishesDishes').request('onSortDishes', {
+                    data: { sortOrder: orderData },
+                    update: { 'dishes/dishes': '#partialDishesDishes' }
+                })
+            },
+            distance: 10
+        })
+    })
+</script>
+{% endput %}
+<div class="dishes-page" id="dishesPage">
+
+    <div id="partialDishesDishes" class="dishes">
+        {% partial 'dishes/dishes' %}
+        {% component 'daftarArmada' %}
+    </div>
+
+    <!-- Form -->
+    <div class="row dish-form" id="partialDishesForm">
+        {% partial 'dishes/form' %}
+    </div>
+
+</div>

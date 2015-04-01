@@ -1,0 +1,63 @@
+<h3>Pilih Armada (BERANGKAT-TUJUAN)
+    <img src="{{ 'assets2/img/icon/icon-home-32-dark.png'|theme }}" class="pull-right">
+</h3>
+<hr />
+
+<div class="row mt">
+              <div class="col-lg-12">
+                      <div class="content-panel">
+						  
+                          <div id="no-more-tables">
+                              <table class="table table-bordered table-striped table-condensed cf">
+                                  <thead class="cf">
+                                  <tr>
+                                      <th>Nama PO</th>
+                                      <th>No Armada</th>
+                                      <th>Jadwal</th>
+                                      <th>Kelas</th>
+                                      <th class="numeric">Harga</th>
+                                      <th>Pesan</th>
+                                      
+                                  </tr>
+                                  </thead>
+                                  <tbody>
+                                   
+                                  {% for t in trayeks %}
+                                  <tr>
+                                  
+                                      <td data-title="Nama PO">{{ t.po.nama }}</td>
+                                      <td data-title="No Armada">{{ t.bus.id }}</td>
+                                      <td data-title="Jadwal">
+                                        <table>
+                                          <tr>
+                                            <td>Datang</td>
+                                            <td>Tiba</td>
+                                            <td>Terse
+
+                                        </table>
+
+
+                                      </td>
+                                      <td data-title="Kelas"></td>
+                                      <td data-title="Harga" class="numeric">{{ t.harga }}</td>
+                                      <td class="numeric">
+                    <a
+                        href="javascript:;"
+                        data-request="onAgen"
+                        
+                        data-request-update="'agen': '#agen'"
+                        class="btn btn-sm btn-danger showSingle" target="agen"><i class="fa fa-trash"></i>&nbsp;Pilih Agen</a>
+
+                                        
+                                      </td>
+                                  </tr>
+                                  {% endfor %}
+                                  </tbody>
+                              </table>
+                         </div>
+
+                          
+
+                      </div><!-- /content-panel -->
+                  </div><!-- /col-lg-12 -->
+              </div><!-- /row -->

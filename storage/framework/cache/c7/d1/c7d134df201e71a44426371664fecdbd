@@ -1,0 +1,197 @@
+1427420974s:7532:"a:5:{s:5:"mtime";i:1427182967;s:7:"content";s:3691:"title = "Pesan Tiket"
+url = "/agen/pesan"
+layout = "bucket"
+hidden = "0"
+
+==
+<?php
+function onStart()
+{
+    $this['currentPage'] = 'kelurahan';
+
+    //$user = Auth::getUser();
+    $this['kotas']= Ipomi\Tiket\Models\Kota::get();
+    
+    
+    //$this['kecamatans']= Sibos\Struk\Models\Kecamatan::get();
+   // $this['ingredients'] = Responsiv\DishSmith\Models\Dish::mergeIngredients($dishes);
+}
+
+
+?>
+==
+{% put head %}
+
+     <link href="{{ [ 'assets2/css/style-responsive.css',
+     'assets2/css/table-responsive.css']|theme  }}" rel="stylesheet">
+
+{% endput %}
+
+
+
+<section class="struk-page wrapper back-ipomi" id="sub-content">
+        <h3>Pesan Tiket
+    <img src="{{ 'assets2/img/icon/icon-seat-side-32-dark.png'|theme }}" class="pull-right">
+</h3>
+<hr />
+
+        <div class="row mt">
+              <div class="col-lg-12">
+
+
+            <!-- panel -->
+
+            <form class="form-horizontal style-form" action="{{ 'agen/hasil'|page }}">
+             
+         
+  
+                  <label>Dari</label>
+             <span class="input-group">
+               <span class="input-group-addon transparan"><img src="{{ 'assets2/img/icon/bus-dari.png'|theme }}" class="pull-right"></span>
+              <select class="form-control transparan" name="dari">
+                {% for k in kotas %}
+                                       <option value="{{ k.id }}" >{{ k.nama }}</option>
+                                    {% endfor %}
+
+              </select>
+              </span>
+              
+              <!--<select class="form-control">
+                <option>Terminal Pulogadung</option><option>Alfamart Pantura1</option><option>Indomaret Marco</option></select> -->
+              <label>Menuju</label>
+              <span class="input-group">
+              <span class="input-group-addon transparan"><img src="{{ 'assets2/img/icon/bus-menuju.png'|theme }}" class="pull-right"></span>
+                        <select class="form-control transparan" name="ke">
+                            {% for k in kotas %}
+                                  <option value="{{ k.id }}" >{{ k.nama }}</option>
+                              {% endfor %}
+                      </select>
+              </span>
+             
+    
+            
+            <label>Tanggal Berangkat</label>
+            <span class="input-group">
+                          
+                                <input name="pergi" type="text" id="userBookingArrival" data-date="{{"now"|date('Y-m-d')}}" data-date-format="dd-mm-yyyy" class="form-control transparan">
+                                <span class="input-group-addon transparan"><a ng-click="open($event)"><img src="{{ 'assets2/img/icon/tgl.png'|theme }}" class="pull-right"></a></span>
+                          
+                            
+                        </span>  
+            
+            
+                      
+           
+
+
+            <label>Jumlah Penumpang</label>
+            <p class="input-group">
+              <span class="input-group-addon transparan"><a ng-click="open($event)"><img src="{{ 'assets2/img/icon/kid.png'|theme }}" class="pull-right"></a></span>
+              <select class="form-control transparan" name="jmlpenumpang">
+              
+              <option>0</option><option selected="selected">1</option><option>2</option><option>3</option><option>4</option></select>
+              </p>
+    
+         <span>
+          <button class="btn btn-warning btn-lg btn-block putih" type="submit"> <i class="fa fa-search pull-left"></i><strong>Pesan Tiket</strong></button>
+          </span>
+</form>
+</div>
+</div>
+    
+      </section>
+
+";s:8:"settings";a:5:{s:5:"title";s:11:"Pesan Tiket";s:3:"url";s:11:"/agen/pesan";s:6:"layout";s:6:"bucket";s:6:"hidden";s:1:"0";s:10:"components";a:0:{}}s:4:"code";s:327:"
+function onStart()
+{
+    $this['currentPage'] = 'kelurahan';
+
+    //$user = Auth::getUser();
+    $this['kotas']= Ipomi\Tiket\Models\Kota::get();
+    
+    
+    //$this['kecamatans']= Sibos\Struk\Models\Kecamatan::get();
+   // $this['ingredients'] = Responsiv\DishSmith\Models\Dish::mergeIngredients($dishes);
+}
+
+
+";s:6:"markup";s:3264:"{% put head %}
+
+     <link href="{{ [ 'assets2/css/style-responsive.css',
+     'assets2/css/table-responsive.css']|theme  }}" rel="stylesheet">
+
+{% endput %}
+
+
+
+<section class="struk-page wrapper back-ipomi" id="sub-content">
+        <h3>Pesan Tiket
+    <img src="{{ 'assets2/img/icon/icon-seat-side-32-dark.png'|theme }}" class="pull-right">
+</h3>
+<hr />
+
+        <div class="row mt">
+              <div class="col-lg-12">
+
+
+            <!-- panel -->
+
+            <form class="form-horizontal style-form" action="{{ 'agen/hasil'|page }}">
+             
+         
+  
+                  <label>Dari</label>
+             <span class="input-group">
+               <span class="input-group-addon transparan"><img src="{{ 'assets2/img/icon/bus-dari.png'|theme }}" class="pull-right"></span>
+              <select class="form-control transparan" name="dari">
+                {% for k in kotas %}
+                                       <option value="{{ k.id }}" >{{ k.nama }}</option>
+                                    {% endfor %}
+
+              </select>
+              </span>
+              
+              <!--<select class="form-control">
+                <option>Terminal Pulogadung</option><option>Alfamart Pantura1</option><option>Indomaret Marco</option></select> -->
+              <label>Menuju</label>
+              <span class="input-group">
+              <span class="input-group-addon transparan"><img src="{{ 'assets2/img/icon/bus-menuju.png'|theme }}" class="pull-right"></span>
+                        <select class="form-control transparan" name="ke">
+                            {% for k in kotas %}
+                                  <option value="{{ k.id }}" >{{ k.nama }}</option>
+                              {% endfor %}
+                      </select>
+              </span>
+             
+    
+            
+            <label>Tanggal Berangkat</label>
+            <span class="input-group">
+                          
+                                <input name="pergi" type="text" id="userBookingArrival" data-date="{{"now"|date('Y-m-d')}}" data-date-format="dd-mm-yyyy" class="form-control transparan">
+                                <span class="input-group-addon transparan"><a ng-click="open($event)"><img src="{{ 'assets2/img/icon/tgl.png'|theme }}" class="pull-right"></a></span>
+                          
+                            
+                        </span>  
+            
+            
+                      
+           
+
+
+            <label>Jumlah Penumpang</label>
+            <p class="input-group">
+              <span class="input-group-addon transparan"><a ng-click="open($event)"><img src="{{ 'assets2/img/icon/kid.png'|theme }}" class="pull-right"></a></span>
+              <select class="form-control transparan" name="jmlpenumpang">
+              
+              <option>0</option><option selected="selected">1</option><option>2</option><option>3</option><option>4</option></select>
+              </p>
+    
+         <span>
+          <button class="btn btn-warning btn-lg btn-block putih" type="submit"> <i class="fa fa-search pull-left"></i><strong>Pesan Tiket</strong></button>
+          </span>
+</form>
+</div>
+</div>
+    
+      </section>";}";

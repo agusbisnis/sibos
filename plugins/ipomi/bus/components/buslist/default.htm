@@ -1,0 +1,28 @@
+
+<form
+	data-request="{{ __SELF__ }}::onAddItem"
+	data-request-success="$('#inputItem').val('')"
+	data-request-update="'{{__SELF__}}::bus': '#hasil'"
+>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Judul {{ __SELF__.tag }} </h3>
+		</div>
+		<div class="panel-body">
+			<div class="input-group">
+				<input name="nama" type="text" id="inputItem" class="form-control" value=""/>
+				<span class="input-group-btn">
+					<button type="submit" class="btn btn-primary">Tambah</button>
+				</span>
+			</div>
+		</div>
+
+			
+			<ul class="list-group" id="hasil">
+				{% partial __SELF__ ~ '::bus' bus=__SELF__.nama %}
+			</ul>
+
+		
+	</div>
+</form>

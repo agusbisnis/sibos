@@ -1,0 +1,109 @@
+.planner-page {
+
+    .dishes-container {
+        overflow: hidden;
+        overflow-x: scroll;
+    }
+
+    ul.dishes {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        display: flex;
+        flex-direction: row;
+
+        > li { 
+            flex: 0 0 200px;
+            position: relative;
+            border: 2px solid #ECF0F1;
+            min-height: 200px;
+
+            &.start-banner {
+                flex: 0 0 50px;
+                background: #E74C3C;
+                position: relative;
+
+                span {
+                    position: absolute;
+                    margin-top: 25px;
+                    top: 50%;
+                    left: 0;
+                    width: 50px;
+                    line-height: 50px;
+                    text-align: center;
+                    display: block;
+                    color: white;
+                    .rotate(-90deg);
+                    white-space: nowrap;
+                    font-size: 22px;
+                    text-transform: uppercase;
+                    letter-spacing: 10px;
+                }
+            }
+
+            h5.day {
+                margin: 0;
+                padding: 10px 0;
+                font-size: 28px;
+                display: block;
+                background: #ECF0F1;
+                text-align: center;
+                color: #555;
+            }
+
+            .image {
+                padding: 10px 0;
+                text-align: center;
+                img { 
+                    width: 95%;
+                    .border-radius(999px);
+                }
+            }
+
+            h3.title {
+                margin: 0;
+                padding: 10px 0;
+                background: #ECF0F1;
+                color: #C0392B;
+                text-align: center;
+            }
+
+            ul.ingredients {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                color: #555;
+                font-size: 16px;
+                overflow: hidden;
+                li {
+                    padding: 5px 0;
+                    background: white;
+                    text-align: center;
+                    &:nth-child(even) {
+                        background: #ECF0F1;
+                    }
+                }
+            }
+
+            &.active {
+                border-color: #C0392B;
+                &:before {
+                    position: absolute;
+                    left: 50%;
+                    margin-left: -15px;
+                    .triangle(down, 30px, 10px, #C0392B);
+                }
+            }
+
+            &.today {
+                h5.day {
+                    background: #F1C40F;
+                    color: white;
+                }
+            }
+        }
+
+    }
+
+}

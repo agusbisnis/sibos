@@ -1,0 +1,173 @@
+1427899124s:6612:"a:5:{s:5:"mtime";i:1426845818;s:7:"content";s:3231:"title = "Konfirmasi Pesanan"
+url = "/web/konfirmasipesan"
+layout = "default"
+hidden = "0"
+
+==
+<?php
+function onStart()
+{
+    $this['currentPage'] = 'konfirmasipesan';
+    $trayek = $this['trayek']=Input::get('trayek');
+    $jmlpenumpang = $this['jmlpenumpang']=Input::get('jmlpenumpang');
+    $agen = $this['agen'] =Input::get('agen');
+    $this['nama']=Input::get('nama');
+    $this['alamat']=Input::get('alamat');
+    $this['telp'] =Input::get('telp');
+    $this['email'] =Input::get('email');
+
+
+    $t = $this['t'] = Ipomi\Tiket\Models\Trayek::find(intval($trayek));
+    $this['a'] = Ipomi\Tiket\Models\Agen::find(intval($agen));
+    $this['asal']=Ipomi\Tiket\Models\Kota::find($t->id_asal);
+    $this['tujuan']=Ipomi\Tiket\Models\Kota::find($t->id_tujuan);
+    $this['total']=floatval($jmlpenumpang)*$t->harga;
+}
+
+
+?>
+==
+{% put head %}
+
+     <link href="{{ [ 'assets2/css/style-responsive.css',
+     'assets2/css/table-responsive.css']|theme  }}" rel="stylesheet">
+
+{% endput %}
+
+
+
+<section class="home-title">
+<div class="container">
+        <h3>Konfirmasi Pemesanan
+    <img src="{{ 'assets2/img/icon/icon-change-32-dark.png'|theme }}" class="pull-right">
+</h3>
+<hr />
+     
+        <div class="row mt">
+              <div class="col-lg-12">
+                     
+<p><strong>Tujuan Perjalanan</strong><br>
+{{ asal.nama }} - {{ tujuan.nama }}
+</p>
+<p> <strong>Waktu Keberangkatan</strong><br>
+Tgl Datang    : {{ t.tgl|date("d-M-Y") }}<br>
+Jam Datang    : {{ t.jamdatang|date("H:i") }}<br>
+Tempat Datang : {{ a.nama }} / {{ a.alamat }}
+</p>
+ 
+<p><strong>Waktu Tiba</strong><br>
+Tgl Tiba    : {{ t.tgltiba|date("d-M-Y") }} <br>
+Waktu Tiba  : {{ t.jamtiba|date("H:i") }}
+</p>
+
+<p><strong>Jumlah Penumpang</strong> : {{ jmlpenumpang }} orang <br></p>
+<p> <strong>Pemesan Yang Bisa Dihubungi</strong><br>
+Nama  :  {{ nama }} <br>
+Telp  :  {{ telp }} <br>
+Email :  {{ email }}  <br>
+Alamat:  {{ alamat }}
+
+</p>
+<p> <strong>Total Harga Tiket</strong><br>
+{{ jmlpenumpang }} x Rp {{ t.harga|number_format(2, ',', '.') }} = Rp {{ total|number_format(2, ',', '.') }}
+</p>
+
+                           <form class="form-horizontal style-form" action="{{ 'web/sukses'|page }}">
+                            <input type="hidden" name="agen" value="{{ agen }}" />
+                            <input type="hidden" name="trayek" value="{{ trayek }}" />
+                            <input type="hidden" name="jmlpenumpang" value="{{ jmlpenumpang }}" />
+                            <input type="hidden" name="nama" value="{{ nama }}" />
+                            <input type="hidden" name="telp" value="{{ telp }}" />
+                            <input type="hidden" name="email" value="{{ email }}" />
+                            <input type="hidden" name="alamat" value="{{ alamat }}" />
+                            <input type="hidden" name="bayar" value="{{ total }}" />
+
+                           <button class="btn btn-warning btn-lg btn-block putih" type="submit"><i class="fa fa-check pull-left"></i>&nbsp;Pesan/Reserve</button>
+                           </form>
+                  </div><!-- /col-lg-12 -->
+</div>
+    </div>
+      </section>
+
+";s:8:"settings";a:5:{s:5:"title";s:18:"Konfirmasi Pesanan";s:3:"url";s:20:"/web/konfirmasipesan";s:6:"layout";s:7:"default";s:6:"hidden";s:1:"0";s:10:"components";a:0:{}}s:4:"code";s:741:"
+function onStart()
+{
+    $this['currentPage'] = 'konfirmasipesan';
+    $trayek = $this['trayek']=Input::get('trayek');
+    $jmlpenumpang = $this['jmlpenumpang']=Input::get('jmlpenumpang');
+    $agen = $this['agen'] =Input::get('agen');
+    $this['nama']=Input::get('nama');
+    $this['alamat']=Input::get('alamat');
+    $this['telp'] =Input::get('telp');
+    $this['email'] =Input::get('email');
+
+
+    $t = $this['t'] = Ipomi\Tiket\Models\Trayek::find(intval($trayek));
+    $this['a'] = Ipomi\Tiket\Models\Agen::find(intval($agen));
+    $this['asal']=Ipomi\Tiket\Models\Kota::find($t->id_asal);
+    $this['tujuan']=Ipomi\Tiket\Models\Kota::find($t->id_tujuan);
+    $this['total']=floatval($jmlpenumpang)*$t->harga;
+}
+
+
+";s:6:"markup";s:2373:"{% put head %}
+
+     <link href="{{ [ 'assets2/css/style-responsive.css',
+     'assets2/css/table-responsive.css']|theme  }}" rel="stylesheet">
+
+{% endput %}
+
+
+
+<section class="home-title">
+<div class="container">
+        <h3>Konfirmasi Pemesanan
+    <img src="{{ 'assets2/img/icon/icon-change-32-dark.png'|theme }}" class="pull-right">
+</h3>
+<hr />
+     
+        <div class="row mt">
+              <div class="col-lg-12">
+                     
+<p><strong>Tujuan Perjalanan</strong><br>
+{{ asal.nama }} - {{ tujuan.nama }}
+</p>
+<p> <strong>Waktu Keberangkatan</strong><br>
+Tgl Datang    : {{ t.tgl|date("d-M-Y") }}<br>
+Jam Datang    : {{ t.jamdatang|date("H:i") }}<br>
+Tempat Datang : {{ a.nama }} / {{ a.alamat }}
+</p>
+ 
+<p><strong>Waktu Tiba</strong><br>
+Tgl Tiba    : {{ t.tgltiba|date("d-M-Y") }} <br>
+Waktu Tiba  : {{ t.jamtiba|date("H:i") }}
+</p>
+
+<p><strong>Jumlah Penumpang</strong> : {{ jmlpenumpang }} orang <br></p>
+<p> <strong>Pemesan Yang Bisa Dihubungi</strong><br>
+Nama  :  {{ nama }} <br>
+Telp  :  {{ telp }} <br>
+Email :  {{ email }}  <br>
+Alamat:  {{ alamat }}
+
+</p>
+<p> <strong>Total Harga Tiket</strong><br>
+{{ jmlpenumpang }} x Rp {{ t.harga|number_format(2, ',', '.') }} = Rp {{ total|number_format(2, ',', '.') }}
+</p>
+
+                           <form class="form-horizontal style-form" action="{{ 'web/sukses'|page }}">
+                            <input type="hidden" name="agen" value="{{ agen }}" />
+                            <input type="hidden" name="trayek" value="{{ trayek }}" />
+                            <input type="hidden" name="jmlpenumpang" value="{{ jmlpenumpang }}" />
+                            <input type="hidden" name="nama" value="{{ nama }}" />
+                            <input type="hidden" name="telp" value="{{ telp }}" />
+                            <input type="hidden" name="email" value="{{ email }}" />
+                            <input type="hidden" name="alamat" value="{{ alamat }}" />
+                            <input type="hidden" name="bayar" value="{{ total }}" />
+
+                           <button class="btn btn-warning btn-lg btn-block putih" type="submit"><i class="fa fa-check pull-left"></i>&nbsp;Pesan/Reserve</button>
+                           </form>
+                  </div><!-- /col-lg-12 -->
+</div>
+    </div>
+      </section>";}";

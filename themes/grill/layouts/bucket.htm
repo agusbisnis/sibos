@@ -1,0 +1,93 @@
+description = "Layout Portal"
+==
+<?php
+public function onStart()
+{
+    if (!Auth::check())
+        return Redirect::to('/agen');
+
+  
+}
+
+
+
+public function onLogout()
+{
+    Auth::logout();
+    return Redirect::to('/agen');
+}
+?>
+==<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <title>Ipomi::{{ this.page.title }}</title>
+    <!--Core CSS -->
+    <link href="{{ [ 'assets3/bs3/css/bootstrap.min.css',
+                      'assets3/js/jquery-ui/jquery-ui-1.10.1.custom.min.css',
+                      'assets3/css/bootstrap-reset.css',
+                      'assets3/font-awesome/css/font-awesome.css',
+                      'assets3/js/jvector-map/jquery-jvectormap-1.2.2.css',
+                      'assets3/css/clndr.css',
+                      'assets3/js/css3clock/css/style.css',
+                      
+                      'assets3/js/morris-chart/morris.css',
+                      'assets3/css/style.css',
+                      'assets3/css/style-responsive.css',
+                      'assets3/css/orange-theme.css'
+    ]|theme }}" rel="stylesheet">
+    
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]>
+    <script src="{{ 'assets3/js/ie8-responsive-file-warning.js'|theme }}"></script><![endif]-->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="{{ 'assets3/https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js'|theme }}"></script>
+    <script src="{{ 'assets3/https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js'|theme }}"></script>
+    <![endif]-->
+</head>
+<body>
+<section id="container">
+<!--header start-->
+<header class="header fixed-top clearfix">
+<!--logo start-->
+    {% partial 'agennav' %}
+</header>
+<!--header end-->
+<!--sidebar start-->
+<aside>
+    {% partial 'agenside' %}
+</aside>
+<!--sidebar end-->
+<!--main content start-->
+<section id="main-content">
+<section class="wrapper">
+
+        {% page %}
+</section>
+</section>
+<!--main content end-->
+<!--right sidebar start-->
+<div class="right-sidebar">
+ {% partial 'agenkanan' %}
+
+</div>
+<!--right sidebar end-->
+</section>
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="{{ 'assets3/js/jquery.js'|theme }}"></script>
+<script src="{{ 'assets3/js/jquery-ui/jquery-ui-1.10.1.custom.min.js'|theme }}"></script>
+<script src="{{ 'assets3/bs3/js/bootstrap.min.js'|theme }}"></script>
+<script src="{{ 'assets3/js/jquery.dcjqaccordion.2.7.js'|theme }}"></script>
+<script src="{{ 'assets3/js/jquery.scrollTo.min.js'|theme }}"></script>
+<script src="{{ 'assets3/js/jQuery-slimScroll-1.3.0/jquery.slimscroll.js'|theme }}"></script>
+<script src="{{ 'assets3/js/jquery.nicescroll.js'|theme }}"></script>
+<script src="{{ 'assets3/js/css3clock/js/css3clock.js'|theme }}"></script>
+<!--common script init for all pages-->
+<script src="{{ 'assets3/js/scripts.js'|theme }}"></script>
+</body>
+</html>

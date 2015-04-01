@@ -1,0 +1,102 @@
+title = "Ipomi"
+url = "/"
+layout = "default"
+description = "Ipomi"
+hidden = "0"
+meta_description = "IPOMI Bus Ticket Access"
+==
+<section class="home-title">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-8">
+                <div class="flexslider">
+                    <ul class="slides">
+                       
+                        <li><img src="{{ 'assets/images/slider-bg.jpg'|theme }}" alt="" />
+                        </li>
+                        <li><img src="{{ 'assets/images/ss.jpg'|theme }}" alt="" />
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4 pt">
+                        <img src="{{ 'assets/images/playstore.jpg'|theme }}" alt="" />
+                    </div>
+                    <div class="col-sm-4 pt">
+                        <img src="{{ 'assets/images/appstore.png'|theme }}" alt="" />
+                    </div>
+                    <div class="col-sm-4 pt">
+                        <img src="{{ 'assets/images/windowstore.jpg'|theme }}" alt="" />
+                    </div>
+                </div>
+            </div>
+
+             <div class="col-sm-4">
+                
+                <div class="register-form">
+                
+                <h3 align="center"><img src="{{ 'assets/images/icon-seat.png'|theme }}" alt="" ><em>Info Jadwal & Reservasi </em></h3>
+                 
+                 <form>
+                         <div class="form-group">
+                            
+                           <img src="{{ 'assets/images/icon-schedule-24-dark.png'|theme }}" alt="" />    Tanggal
+                          
+                                <input name="arrival" type="text" id="userBookingArrival" data-date="{{"now"|date('Y-m-d')}}" data-date-format="dd-mm-yyyy" placeholder="Arrival date">
+                                
+                       
+                    </div>
+                            
+                                
+                               
+                            <div class="form-group">
+                            
+                           <img src="{{ 'assets/images/bus-dari.png'|theme }}" alt="" />   Kota Asal
+                          <select name="pay_plan" class="form-control" id="userBookingPay">
+                                <option value="none">Select one</option>
+                                {% for payplan in payplans %}
+                                    <option value="{{ payplan.id }}">{{ payplan.title }}</option>
+                                {% endfor %}
+                            </select>
+                    </div>
+
+                            <div class="form-group">
+                            
+                           <img src="{{ 'assets/images/bus-menuju.png'|theme }}" alt="" />   Kota Tujuan
+                           <select class="form-control" id="kelurahan" ng-model="pasar.kelurahan" ng-options="k.id as k.nama for k in kelurahans"> 
+                    </select>
+                    </div>
+
+                    
+                             <div class="form-group">
+                            
+                                <img src="{{ 'assets/images/icon-toilet-24-dark.png'|theme }}" alt="" />    Penumpang
+                                <select class="form-control" id="kelurahan" ng-model="pasar.kelurahan" ng-options="k.id as k.nama for k in kelurahans"> 
+                                </select>
+                            </div>
+                        
+
+                        <div class="form-group send">
+                            <button type="submit" class="btn btn-block">Cari</button>
+                       </div>
+                       <div class="form-group send">
+                            <button type="submit" class="btn btn-block">Cek Booking</button>
+                       </div>
+
+                        <div class="additional-links">
+                    Silahkan pelajari <a href="#">Cara Pesan</a> atau <a href="#">Kontak Kami</a>
+                </div>
+                    </form>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div id="services">
+    {% partial "services" %}
+</div>

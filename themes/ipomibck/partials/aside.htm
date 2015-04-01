@@ -1,0 +1,88 @@
+<aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu" id="nav-accordion">
+              
+              	  <p class="centered"><a href="#"><img src="{{ 'assets2/img/logo.png'|theme }}" class="img-circle" width="60"></a></p>
+              	  <h4 class="centered">DINPERINDAG</h4>
+              	  <h5 class="centered">KOTA TEGAL</h5>	
+                  <li class="mt">
+                      <a href="{{ 'struk'|page }}" class="{% if this.page.id == 'struk' %}active{% endif %}">
+                          <i class="fa fa-dashboard"></i>
+                          <span>Dashboard</span>
+                      </a>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-cogs"></i>
+                          <span>Pengaturan</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="{{ 'kategoriproduk'|page }}" class="{% if this.page.id == 'kategoriproduk' %}active{% endif %}">Kategori Produk</a></li>
+                          <li><a href="{{ 'jenisproduk'|page }}" class="{% if this.page.id == 'jenisproduk' %}active{% endif %}">Jenis Produk</a></li>
+                          <li><a  href="{{ 'satuanproduksi'|page }}" class="{% if this.page.id == 'satuanproduksi' %}active{% endif %}">Satuan Produksi</a></li>
+                          <li><a  href="{{ 'kategorienergi'|page }}" class="{% if this.page.id == 'kategorienergi' %}active{% endif %}">Kategori Energi</a></li>
+                          <li><a href="{{ 'jenisenergi'|page }}" class="{% if this.page.id == 'jenisenergi' %}active{% endif %}">Jenis Energi</a></li>
+                          
+                          <li><a  href="{{ 'kategoribhnbaku'|page }}" class="{% if this.page.id == 'kategoribhnbaku' %}active{% endif %}">Kategori Bahan Baku</a></li>
+                          <li><a  href="{{ 'jenisbahanbaku'|page }}" class="{% if this.page.id == 'jenisbahanbaku' %}active{% endif %}">Jenis Bahan Baku</a></li>
+                          <li><a  href="{{ 'satuanbahanbaku'|page }}" class="{% if this.page.id == 'satuanbahanbaku' %}active{% endif %}">Satuan Bahan Baku</a></li>
+                          
+                          <li><a href="{{ 'jenisbadanusaha'|page }}" class="{% if this.page.id == 'jenisbadanusaha' %}active{% endif %}">Jenis Badan Usaha</a></li>
+                          <li><a href="{{ 'jenispemasaran'|page }}" class="{% if this.page.id == 'jenispemasaran' %}active{% endif %}">Jenis Pemasaran</a></li>
+                          
+                          <li><a href="{{ 'kecamatan'|page }}" class="{% if this.page.id == 'kecamatan' %}active{% endif %}">Kecamatan</a></li>
+                          <li><a href="{{ 'kelurahan'|page }}" class="{% if this.page.id == 'kelurahan' %}active{% endif %}">Kelurahan</a></li>
+
+                      </ul>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="{{ 'perusahaan'|page }}" class="{% if this.page.id == 'perusahaan' %}active{% endif %}">
+                          <i class="fa fa-desktop"></i>
+                          <span>Data Industri</span>
+                      </a>
+                  </li>
+
+                  
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-tasks"></i>
+                          <span>Sticker</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a href="{{ 'formal'|page }}" class="{% if this.page.id == 'formal' %}active{% endif %}">Cetak Per Usaha</a></li>
+                      </ul>
+                      <ul class="sub">
+                          <li><a href="{{ 'formal'|page }}" class="{% if this.page.id == 'formal' %}active{% endif %}">Cetak Kelompok</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-book"></i>
+                          <span>Laporan</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a href="{{ 'blank'|page }}" class="{% if this.page.id == 'blank' %}active{% endif %}">Pendaftaran Usaha Baru</a></li>
+                          <li><a href="{{ 'login'|page }}" class="{% if this.page.id == 'login' %}active{% endif %}">Data Set Usaha</a></li>
+                          <li><a href="{{ 'lock'|page }}" class="{% if this.page.id == 'lock' %}active{% endif %}">Pertumbuhan Usaha</a></li>
+                      </ul>
+                  </li>
+                  
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-th"></i>
+                          <span>Kotak Masuk</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a href="{{ 'basic_table'|page }}" class="{% if this.page.id == 'basic_table' %}active{% endif %}">Web</a></li>
+                          <li><a href="{{ 'restable'|page }}" class="{% if this.page.id == 'restable' %}active{% endif %}">Antar Pengguna</a></li>
+                      </ul>
+                  </li>
+                  
+
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>

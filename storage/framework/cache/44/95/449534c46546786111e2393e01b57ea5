@@ -1,0 +1,21 @@
+1426847559s:874:"a:5:{s:5:"mtime";i:1420256790;s:7:"content";s:372:"    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading-section">
+                    <h2>Testimonials and Awards</h2>
+                    <img src="{{ 'assets/images/under-heading.png'|theme }}" alt="" >
+                </div>
+            </div>
+        </div>
+    </div>
+	{% partial "testimonials" %}";s:8:"settings";a:1:{s:10:"components";a:0:{}}s:4:"code";N;s:6:"markup";s:368:"<div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading-section">
+                    <h2>Testimonials and Awards</h2>
+                    <img src="{{ 'assets/images/under-heading.png'|theme }}" alt="" >
+                </div>
+            </div>
+        </div>
+    </div>
+	{% partial "testimonials" %}";}";
